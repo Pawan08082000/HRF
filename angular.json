@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -92,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +126,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "HRF"
+    }
+  },
+  "defaultProject": "HRF",
+  "cli": {
+    "analytics": "64873a01-8660-4b06-8e1a-9d190c269366"
+  }
 }

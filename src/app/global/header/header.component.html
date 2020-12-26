@@ -1,0 +1,42 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row fxLayoutAlign="space-between center">
+    <div>
+      <button mat-button>
+        <mat-icon>home</mat-icon>
+        <span class="logo">Angular App</span>
+      </button>
+    </div>
+    <div fxLayout="row">
+      <div *ngIf="!deviceXs">
+        <button mat-button>
+          <span>Home</span>
+        </button>
+        <button mat-button>
+          <span>About</span>
+        </button>
+        <button mat-button>
+          <span>Register</span>
+        </button>
+
+        <!-- <img mat-card-avatar src="../../../assets/photos/1.jpg" alt="" /> -->
+      </div>
+      <button mat-icon-button>
+        <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
+        <span *ngIf="!deviceXs">menu</span>
+      </button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-toolbar *ngIf="deviceXs">
+  <mat-toolbar-row fxLayoutAlign="space-between end">
+    <button mat-button>
+      <span>Home</span>
+    </button>
+    <button mat-button>
+      <span>About</span>
+    </button>
+    <button mat-button>
+      <span>Register</span>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
