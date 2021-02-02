@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {FlexLayoutModule} from '@angular/flex-layout'
 
 import { GlobalModule} from './global/global.module'
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +19,8 @@ import { GlobalModule} from './global/global.module'
     AppRoutingModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    GlobalModule
+    GlobalModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

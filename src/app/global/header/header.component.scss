@@ -3,3 +3,7 @@
 padding:0px 5px;
 font-size: 20px;
 }
+mat-toolbar, mat-toolbar-row{
+    background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
+    color: #fff;
+}
