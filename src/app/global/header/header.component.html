@@ -20,10 +20,28 @@
 
         <!-- <img mat-card-avatar src="../../../assets/photos/1.jpg" alt="" /> -->
       </div>
-      <button mat-icon-button>
-        <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
-        <span *ngIf="!deviceXs">menu</span>
-      </button>
+
+      <img src="../../../assets/profile.jpg" class="avtar" alt="" />
+      <div>
+        <button
+          mat-icon-button
+          class="more-button"
+          [matMenuTriggerFor]="menu"
+          aria-label="Toggle menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <div>
+          <mat-menu
+            style="background-color: white"
+            #menu="matMenu"
+            xPosition="before"
+          >
+            <button class="menu" mat-menu-item>Profile</button>
+            <button class="menu" mat-menu-item>Logout</button>
+          </mat-menu>
+        </div>
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

@@ -7,3 +7,20 @@ mat-toolbar, mat-toolbar-row{
     background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
     color: #fff;
 }
+.avtar{
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.mat-menu-content{
+    background-color: white;
+}
+.menu {
+    color: black;
+    background-color: white;
+    
+}
+.menu:hover{
+    background-color: gray;
+}

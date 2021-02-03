@@ -9,6 +9,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./auth/auth.module').then((m) => m.AuthModule),
   },
+  {
+    //this is for lazy loading
+    path: 'home',
+    loadChildren: () =>
+      import('./global/global.module').then((m) => m.GlobalModule),
+  },
 ];
 
 @NgModule({
