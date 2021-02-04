@@ -17,18 +17,31 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AuthComponent } from './auth/auth.component';
-import {AuthInterceptor} from '../_helpers/auth.interceptor'
+import { AuthInterceptor } from '../_helpers/auth.interceptor';
+import { VerifyUserComponent } from './verify-user/verify-user.component';
 
 @NgModule({
-  declarations: [SignUpComponent, LoginComponent, ForgetPasswordComponent, ResetPasswordComponent,AuthComponent],
+  declarations: [
+    SignUpComponent,
+    LoginComponent,
+    ForgetPasswordComponent,
+    ResetPasswordComponent,
+    AuthComponent,
+    VerifyUserComponent,
+  ],
   imports: [
     CommonModule,
-    AuthRoutingModule,MatSelectModule,MatButtonModule,MatInputModule,
-    MatRadioModule,MatCardModule,ReactiveFormsModule,MatIconModule
-    ,MatGridListModule
+    AuthRoutingModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatInputModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatGridListModule,
   ],
-  providers: [AuthInterceptor,FormsModule,
-    HttpClientModule],
-  bootstrap:[]
+  providers: [AuthInterceptor, FormsModule, HttpClientModule],
+  bootstrap: [],
 })
-export class AuthModule { }
+export class AuthModule {}

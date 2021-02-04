@@ -6,11 +6,9 @@ import { TitleService } from '../../services/title.service';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent implements OnInit {
-
-
   signupForm = this.fb.group({
     username: [null, Validators.required],
     email: [null, Validators.required],
@@ -21,37 +19,47 @@ export class SignUpComponent implements OnInit {
     //   Validators.required, Validators.minLength(5), Validators.maxLength(5)])
     // ],
   });
-  hide =true;
+  hide = true;
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
   message;
 
   roles = [
-    {name: 'HR', abbreviation: 'moderator'},
-    {name: 'Employee', abbreviation: 'user'},
-    {name: 'Admin', abbreviation: 'admin'},
-  
+    { name: 'HR', abbreviation: 'moderator' },
+    { name: 'Employee', abbreviation: 'user' },
+    { name: 'Admin', abbreviation: 'admin' },
   ];
-  constructor(private fb: FormBuilder, private auth: AuthService, private titleService :TitleService) { }
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthService,
+    private titleService: TitleService
+  ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('Signup');
   }
 
   onSubmit(): void {
-    const {username, email, password } = this.signupForm.value;
-
-    this.auth.register(username, email, password).subscribe(
-      data => {
-this.message = data;
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
+    const {
+      username,
+      email,
+      password,
+      confirmPassword,
+      roles,
+    } = this.signupForm.value;
+    this.auth
+      .register(username, email, password, confirmPassword, Array(roles))
+      .subscribe(
+        (data) => {
+          this.message = data;
+          this.isSuccessful = true;
+          this.isSignUpFailed = false;
+        },
+        (err) => {
+          this.errorMessage = err.error.message;
+          this.isSignUpFailed = true;
+        }
+      );
   }
 }

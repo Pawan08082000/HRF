@@ -14,15 +14,20 @@
         <button mat-button>
           <span>About</span>
         </button>
-        <button mat-button>
+        <button mat-button *ngIf="!this.auth.isLoggedIn()">
           <span>Register</span>
         </button>
 
         <!-- <img mat-card-avatar src="../../../assets/photos/1.jpg" alt="" /> -->
       </div>
 
-      <img src="../../../assets/profile.jpg" class="avtar" alt="" />
-      <div>
+      <img
+        src="../../../assets/profile.jpg"
+        *ngIf="this.auth.isLoggedIn()"
+        class="avtar"
+        alt=""
+      />
+      <div *ngIf="this.auth.isLoggedIn()">
         <button
           mat-icon-button
           class="more-button"
@@ -38,7 +43,9 @@
             xPosition="before"
           >
             <button class="menu" mat-menu-item>Profile</button>
-            <button class="menu" mat-menu-item>Logout</button>
+            <button class="menu" (click)="logout()" mat-menu-item>
+              Logout
+            </button>
           </mat-menu>
         </div>
       </div>
