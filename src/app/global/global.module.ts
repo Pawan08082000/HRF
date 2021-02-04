@@ -19,11 +19,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, HomeComponent],
+  declarations: [HeaderComponent, FooterComponent, HomeComponent, LoaderComponent],
   imports: [
     CommonModule,
     GlobalRoutingModule,
@@ -37,7 +38,7 @@ import { MatCardModule } from '@angular/material/card';
     MatMenuModule,
     MatGridListModule,MatCardModule,
   ],
-  exports:[HeaderComponent, FooterComponent ],
+  exports:[HeaderComponent, FooterComponent , LoaderComponent],
   providers:[HttpClientModule]
 })
 export class GlobalModule { }
