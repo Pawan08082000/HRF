@@ -7,6 +7,8 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AuthComponent } from './auth/auth.component';
 import { VerifyUserComponent } from './verify-user/verify-user.component';
 
+import { AuthGuard } from '../auth/auth.guard';
+
 const routes: Routes = [
   {
     path: '',

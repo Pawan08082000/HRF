@@ -9,13 +9,13 @@
     <div fxLayout="row">
       <div *ngIf="!deviceXs">
         <button mat-button>
-          <span>Home</span>
+          <span routerLink="/home">Home</span>
         </button>
         <button mat-button>
           <span>About</span>
         </button>
         <button mat-button *ngIf="!this.auth.isLoggedIn()">
-          <span>Register</span>
+          <span routerLink="/auth/signup">Register</span>
         </button>
 
         <!-- <img mat-card-avatar src="../../../assets/photos/1.jpg" alt="" /> -->
@@ -42,7 +42,9 @@
             #menu="matMenu"
             xPosition="before"
           >
-            <button class="menu" mat-menu-item>Profile</button>
+            <button class="menu" routerLink="/emp/profile" mat-menu-item>
+              Profile
+            </button>
             <button class="menu" (click)="logout()" mat-menu-item>
               Logout
             </button>
@@ -55,13 +57,13 @@
 <mat-toolbar *ngIf="deviceXs">
   <mat-toolbar-row fxLayoutAlign="space-between end">
     <button mat-button>
-      <span>Home</span>
+      <span routerLink="/emp/profile">Home</span>
     </button>
     <button mat-button>
       <span>About</span>
     </button>
-    <button mat-button>
-      <span>Register</span>
+    <button mat-button *ngIf="!this.auth.isLoggedIn()">
+      <span routerLink="/auth/signup">Register</span>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>

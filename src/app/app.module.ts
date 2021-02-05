@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { AuthModule } from './auth/auth.module';
 import { GlobalModule } from './global/global.module';
 
 @NgModule({
@@ -20,6 +20,7 @@ import { GlobalModule } from './global/global.module';
     BrowserAnimationsModule,
     FlexLayoutModule,
     GlobalModule,
+    AuthModule,
     HttpClientModule,
   ],
   providers: [

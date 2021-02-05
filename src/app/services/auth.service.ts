@@ -13,6 +13,8 @@ const httpOptions = {
 })
 export class AuthService {
 
+  redirectUrl: string;
+
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
