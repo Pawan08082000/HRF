@@ -65,9 +65,37 @@ export class AuthGuard
     if (this.authService.isLoggedIn()) {
       return true;
     }
-
     this.authService.redirectUrl = url;
 
     this.router.navigate(['/auth/login'], { queryParams: { returnUrl: url } });
+  }
+}
+
+@Injectable({
+  providedIn: 'root',
+})
+export class LoggedInAuthGuard implements CanActivate{
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  canActivate(
+    next: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    const url: string = state.url;
+    return this.checkNotLogin(url);
+  }
+  checkNotLogin(url : string){
+    console.log('resetPassword', this.authService.isLoggedIn())
+    if (!this.authService.isLoggedIn()) {
+      return true;
+    }
+    this.authService.redirectUrl = url;
+
+    this.router.navigate(['/home'], { queryParams: { returnUrl: url } });
   }
 }

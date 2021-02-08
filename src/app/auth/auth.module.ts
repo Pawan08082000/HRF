@@ -1,3 +1,4 @@
+import { LoggedInAuthGuard } from './auth.guard';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -41,7 +42,7 @@ import { VerifyUserComponent } from './verify-user/verify-user.component';
     MatIconModule,
     MatGridListModule,
   ],
-  providers: [AuthInterceptor, FormsModule, HttpClientModule],
+  providers: [AuthInterceptor, FormsModule, HttpClientModule, LoggedInAuthGuard],
   bootstrap: [],
 })
 export class AuthModule {}

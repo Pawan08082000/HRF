@@ -54,4 +54,18 @@ export class AuthService {
     const currentUser = JSON.parse(sessionStorage.getItem('auth-token'));
     return currentUser.token;
   }
+
+  recoverPassword(email: string){
+    return this.http.post(AUTH_API + 'recover', {
+      email : email
+    }, httpOptions);
+  }
+
+  resetPassword(password : string, confirmPassword: string,token:string){
+    return this.http.post(AUTH_API + `reset/${token}`, {
+      password: password,
+      confirmPassword : confirmPassword,
+      token : token
+    }, httpOptions);
+  }
 }
