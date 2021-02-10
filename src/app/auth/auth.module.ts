@@ -20,6 +20,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptor } from '../_helpers/auth.interceptor';
 import { VerifyUserComponent } from './verify-user/verify-user.component';
+import {
+  MatCheckboxModule,
+} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -41,8 +44,14 @@ import { VerifyUserComponent } from './verify-user/verify-user.component';
     ReactiveFormsModule,
     MatIconModule,
     MatGridListModule,
+    MatCheckboxModule,
   ],
-  providers: [AuthInterceptor, FormsModule, HttpClientModule, LoggedInAuthGuard],
+  providers: [
+    AuthInterceptor,
+    FormsModule,
+    HttpClientModule,
+    LoggedInAuthGuard,
+  ],
   bootstrap: [],
 })
 export class AuthModule {}

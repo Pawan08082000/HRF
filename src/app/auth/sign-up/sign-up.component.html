@@ -23,6 +23,9 @@
           <mat-error *ngIf="signupForm.controls['email'].hasError('required')">
             Email is <strong>required</strong>
           </mat-error>
+          <mat-error *ngIf="signupForm.controls['email'].hasError('email')">
+            Invalid Email
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
@@ -44,6 +47,11 @@
           >
             Password is <strong>required</strong>
           </mat-error>
+          <mat-error
+            *ngIf="signupForm.controls['password'].hasError('minlength')"
+          >
+            Must be at least 6 chars
+          </mat-error>
         </mat-form-field>
       </div>
     </div>
@@ -62,40 +70,14 @@
           <mat-error
             *ngIf="signupForm.controls['confirmPassword'].hasError('required')"
           >
-            Confirm your <strong>password</strong>
+            <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="signupForm.hasError('notSame')">
+            Passwords do not match
           </mat-error>
         </mat-form-field>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col">
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            placeholder="Local Address"
-            formControlName="address"
-          />
-          <mat-error
-            *ngIf="signupForm.controls['address'].hasError('required')"
-          >
-            Address is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-      </div>
-      <div class="col">
-        <mat-form-field class="full-width">
-          <input
-            matInput
-            #postalCode
-            maxlength="5"
-            placeholder="Postal Code"
-            type="number"
-            formControlName="postalCode"
-          />
-          <mat-hint align="end">{{ postalCode.value.length }} / 5</mat-hint>
-        </mat-form-field>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col">
         <mat-form-field class="full-width">
@@ -112,6 +94,12 @@
     </div>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button mat-raised-button color="primary" type="submit">SignUp</button>
   </mat-card-actions>
+
+  <br />
+  <br />
+  <strong
+    >Already have an account? <a routerLink="/auth/signup">SignIn</a></strong
+  >
 </form>
