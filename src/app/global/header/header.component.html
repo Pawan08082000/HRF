@@ -9,34 +9,61 @@
     <div fxLayout="row">
       <div *ngIf="!deviceXs">
         <button mat-button>
-          <span>Home</span>
+          <span routerLink="/home">Home</span>
         </button>
         <button mat-button>
           <span>About</span>
         </button>
-        <button mat-button>
-          <span>Register</span>
+        <button mat-button *ngIf="!this.auth.isLoggedIn()">
+          <span routerLink="/auth/signup">Register</span>
         </button>
 
         <!-- <img mat-card-avatar src="../../../assets/photos/1.jpg" alt="" /> -->
       </div>
-      <button mat-icon-button>
-        <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
-        <span *ngIf="!deviceXs">menu</span>
-      </button>
+
+      <img
+        src="../../../assets/profile.jpg"
+        *ngIf="this.auth.isLoggedIn()"
+        class="avtar"
+        alt=""
+      />
+      <div *ngIf="this.auth.isLoggedIn()">
+        <button
+          mat-icon-button
+          class="more-button"
+          [matMenuTriggerFor]="menu"
+          aria-label="Toggle menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <div>
+          <mat-menu
+            style="background-color: white"
+            #menu="matMenu"
+            xPosition="before"
+          >
+            <button class="menu" routerLink="/emp/profile" mat-menu-item>
+              Profile
+            </button>
+            <button class="menu" (click)="logout()" mat-menu-item>
+              Logout
+            </button>
+          </mat-menu>
+        </div>
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-toolbar *ngIf="deviceXs">
   <mat-toolbar-row fxLayoutAlign="space-between end">
     <button mat-button>
-      <span>Home</span>
+      <span routerLink="/emp/profile">Home</span>
     </button>
     <button mat-button>
       <span>About</span>
     </button>
-    <button mat-button>
-      <span>Register</span>
+    <button mat-button *ngIf="!this.auth.isLoggedIn()">
+      <span routerLink="/auth/signup">Register</span>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>

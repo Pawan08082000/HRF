@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
+import { Router }  from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,11 @@ export class AppComponent {
   mediaSub: Subscription;
   deviceXs: Boolean;
 
-  constructor(public mediaObserver: MediaObserver) {}
+  constructor(public mediaObserver: MediaObserver,public router: Router) {}
 
   ngOnInit(){
     this.mediaSub = this.mediaObserver.media$.subscribe(
       (result: MediaChange) => {
-        console.log('hello');
         console.log(result.mqAlias);
         this.deviceXs = result.mqAlias === 'xs' ? true : false;
       }
