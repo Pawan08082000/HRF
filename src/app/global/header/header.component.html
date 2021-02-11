@@ -1,10 +1,12 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row fxLayoutAlign="space-between center">
-    <div>
-      <button mat-button>
-        <mat-icon>home</mat-icon>
-        <span class="logo">Angular App</span>
-      </button>
+    <div class="uk-display-inline-block">
+      <a routerLink="/home"
+        ><img class="brand" src="../../../assets/brand.png"
+      /></a>
+      <!-- <button mat-button>
+        <span class="logo"><a routerLink="/home"> M2aster</a></span>
+      </button> -->
     </div>
     <div fxLayout="row">
       <div *ngIf="!deviceXs">
@@ -15,7 +17,7 @@
           <span>About</span>
         </button>
         <button mat-button *ngIf="!this.auth.isLoggedIn()">
-          <span routerLink="/auth/signup">Register</span>
+          <span routerLink="/auth/login">Login</span>
         </button>
 
         <!-- <img mat-card-avatar src="../../../assets/photos/1.jpg" alt="" /> -->
