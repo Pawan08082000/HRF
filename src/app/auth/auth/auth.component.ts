@@ -15,4 +15,8 @@ title : String;
     this.titleService.getTitle().subscribe(appTitle => this.title = appTitle);
   }
 
+  moveBack(){
+    window.history.back();
+  }
+
 }
