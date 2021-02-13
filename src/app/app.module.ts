@@ -12,6 +12,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthModule } from './auth/auth.module';
 import { GlobalModule } from './global/global.module';
 
+import {MenuMasterModule} from './menu-master/menu-master.module';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -22,6 +24,7 @@ import { GlobalModule } from './global/global.module';
     GlobalModule,
     AuthModule,
     HttpClientModule,
+    MenuMasterModule
   ],
   providers: [
     {

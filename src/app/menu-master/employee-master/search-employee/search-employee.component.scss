@@ -1,0 +1,43 @@
+form{
+    text-align: center;
+}
+mat-card-content{
+    display:block;
+}
+mat-card-title{
+    font-size:40px;
+    text-align: center;
+}
+h1{
+    font-size: 30px;
+}
+:host{
+
+    .mat-form-field{
+        font-size:20px;
+
+    }
+    .mat-form-actions{
+        font-size:20px;
+    }
+}
+button{
+    background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
+    color: #fff;
+}
+.alert-success{
+    margin-bottom: 10px;
+}
+
+.mt-2 {
+    margin-top: 50px;
+}
+
+.mb-2 {
+    margin-bottom: 50px;
+}
+
+table {
+    width: 100%;
+  }
+  
