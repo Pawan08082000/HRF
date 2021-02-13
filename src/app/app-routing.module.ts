@@ -21,6 +21,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./employee/employee.module').then((m) => m.EmployeeModule),
   },
+  {
+    //this is for lazy loading
+    path: 'menuMaster',
+    loadChildren: () =>
+      import('./menu-master/menu-master.module').then((m) => m.MenuMasterModule),
+  },
 ];
 
 @NgModule({
