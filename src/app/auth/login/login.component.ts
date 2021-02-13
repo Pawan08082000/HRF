@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { TitleService } from '../../services/title.service';
 import { AuthService } from '../../services/auth.service';
 import { TokenStorageService } from '../../services/token-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,6 +17,9 @@ export class LoginComponent implements OnInit {
   message;
   roles: string[] = [];
   booleanVariable: boolean = true;
+  hide:boolean = true;
+
+  @Output() msg = new EventEmitter<string>();
 
   loginForm = this.fb.group({
     username: [null, Validators.required],
@@ -23,6 +27,7 @@ export class LoginComponent implements OnInit {
     rememberMe: [new FormControl(false)],
   });
   constructor(
+    private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
     private titleService: TitleService,
@@ -37,6 +42,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
   onSubmit(): void {
     if (!this.loginForm.invalid) {
       const { username, password } = this.loginForm.value;
@@ -50,6 +56,7 @@ export class LoginComponent implements OnInit {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
+          this.router.navigate(['/home']);
           // this.reloadPage();
         },
         (err) => {

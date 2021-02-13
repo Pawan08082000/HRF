@@ -1,5 +1,6 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,12 @@ import { Component, OnInit, Input } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() deviceXs;
 
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService, private router : Router) {}
 
   ngOnInit(): void {}
 
   logout() {
     this.auth.logout();
+    this.router.navigate(['/auth/login']);
   }
 }
