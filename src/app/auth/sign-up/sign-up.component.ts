@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { TitleService } from '../../services/title.service';
 
@@ -11,14 +11,15 @@ import { TitleService } from '../../services/title.service';
 export class SignUpComponent implements OnInit {
   signupForm = this.fb.group({
     username: [null, Validators.required],
-    email: [null, Validators.required],
-    password: [null, Validators.required],
+    email: [null, Validators.compose([Validators.required, Validators.email])],
+    password: [null, 
+      Validators.compose([Validators.required, Validators.minLength(6)])    ],
     confirmPassword: [null, Validators.required],
     roles: [null, Validators.required],
     // postalCode: [null, Validators.compose([
     //   Validators.required, Validators.minLength(5), Validators.maxLength(5)])
     // ],
-  });
+  }, { validators: this.checkPasswords });
   hide = true;
   isSuccessful = false;
   isSignUpFailed = false;
@@ -40,7 +41,15 @@ export class SignUpComponent implements OnInit {
     this.titleService.setTitle('Signup');
   }
 
+  checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+  const password = group.get('password').value;
+  const confirmPassword = group.get('confirmPassword').value;
+
+  return password === confirmPassword ? null : { notSame: true }     
+}
+
   onSubmit(): void {
+    if (!this.signupForm.invalid){
     const {
       username,
       email,
@@ -61,5 +70,6 @@ export class SignUpComponent implements OnInit {
           this.isSignUpFailed = true;
         }
       );
+    }
   }
 }

@@ -29,6 +29,7 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.forgetPasswordForm.invalid){
     const { email } = this.forgetPasswordForm.value;
 
     this.authService.recoverPassword(email).subscribe(
@@ -40,5 +41,6 @@ export class ForgetPasswordComponent implements OnInit {
         this.errorMessage = err.error.message;
       }
     );
+    }
   }
 }

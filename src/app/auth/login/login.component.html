@@ -26,15 +26,40 @@
           </mat-form-field>
         </div>
       </div>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Password" formControlName="password" />
-        <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
+      <div class="row align-items-center">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-label>Password:</mat-label>
+            <input matInput placeholder="Password" formControlName="password" />
+
+            <mat-error
+              *ngIf="loginForm.controls['password'].hasError('required')"
+            >
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-sm-12 align-items-end">
+          <a routerLink="/auth/forgetPassword">Forget Password</a>?
+        </div>
+      </div>
+      <br />
+      <div class="row align-items-start">
+        <div class="col">
+          <mat-checkbox [checked]="booleanVariable" formControlName="rememberMe"
+            >Remember me!</mat-checkbox
+          >
+        </div>
+      </div>
       <mat-card-actions>
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-raised-button color="primary" type="submit">Login</button>
       </mat-card-actions>
+      <br />
+      <br />
+      <p>Not a Member? <a routerLink="/auth/signup">Sign Up Now</a></p>
     </div>
     <!-- <div class="col-sm-8">
       <div class="container">
