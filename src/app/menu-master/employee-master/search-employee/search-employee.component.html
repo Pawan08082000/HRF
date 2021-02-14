@@ -1,44 +1,53 @@
-<form [formGroup]="searchEmployeeForm" >
-    <mat-card class="container col-sm-6 mt-2 mb-2">
-        <div class="justify-content-between d-flex">
-    <mat-card-title>{{ title }}</mat-card-title>
-         
-        </div>
-        <hr />
-      
+<form [formGroup]="searchEmployeeForm">
+  <mat-card class="container col-sm-6 mt-2 mb-2">
+    <div class="justify-content-between d-flex">
+      <mat-card-title>{{ title }}</mat-card-title>
+    </div>
+    <hr />
+
     <mat-card-content class="dashboard-card-content">
-      
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
             <input matInput placeholder="search" formControlName="search" />
-           
           </mat-form-field>
         </div>
       </div>
-     
-     
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit" (click)=onSubmit()>search</button>
-      <button mat-raised-button color="primary" type="submit" (click)=viewAll()>View All</button>
-
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="onSubmit()"
+      >
+        search
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        (click)="viewAll()"
+      >
+        View All
+      </button>
     </mat-card-actions>
 
-    <button mat-icon-button style="color: blue; align-items: flex-end;" 
-    data-toggle="tooltip" data-placement="left" title="Add Employee" 
-    (click) = addEmployee()>
-        <mat-icon>add</mat-icon>
-      </button>
+    <button
+      mat-icon-button
+      style="color: blue; align-items: flex-end"
+      data-toggle="tooltip"
+      data-placement="left"
+      title="Add Employee"
+      (click)="addEmployee()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
 
-      <!-- <button mat-icon-button style="color: blue; align-content: flex-end;">
+    <!-- <button mat-icon-button style="color: blue; align-content: flex-end;">
         <mat-icon>Upload</mat-icon><p>Upload Employee</p>
       </button> -->
+  </mat-card>
+</form>
 
-</mat-card>
-
-  </form>
-  
-
-  <!-- table to show employee details -->
-  
+<!-- table to show employee details -->
