@@ -1,0 +1,59 @@
+{"WorkType":["Permanent", "Part-Time", "Contract",
+ "Probation", "Commission", "Intern",
+"Trainee", "Worker"],
+
+"Department": ["Adminstrative", "Audit", "Canteen", "Finance & Accounts",
+    "Human Resource", "IT Department", "Material Management", "Office", 
+    "Procurement", "Production", "Quality & Control", 
+    "Sales & Marketing", "Store", "Telli Caller"],
+
+"Company": ["IBM", "Microsoft", "Nokia Corporation", "Pepsi Co",
+"Ranbaxy Laboratories Limited", "Reebok International Limited", 
+"Sony", "Tata Consultancy Services", "Vodafone", "Tata Motors Limited",
+"Accenture"
+],
+
+"Designation": ["Trainee Engineer", "Software Engineer", "System Analyst",
+"Programmer Analyst", "Senior Software Engineer", "H.R. manager",
+"PHP developer", "Android developer", "Project Manager",
+"General Manager", "Business Development Manager", "Internet Marketing Head",
+"Content Writter", "System Administrator", "CEO/MD"],
+
+"ReportedTo":["Administrator", "CEO", "CFO", "Manager"],
+
+"EmploymentType": ["Freelancers", "Temporary workers", "Consultants"],
+
+"OfficeBranch": ["Bengaluru - Audugodi", "Bengaluru - Bannerghatta Road",
+"Bengaluru - Doddanekundi Village", "Bengaluru - IBC Knowledge Park",
+"Bengaluru - Mylasandra Patanegere Village", "Bengaluru - Pritech Park SEZ",
+"Bengaluru - RMZ Ecospace", "Bengaluru - SEZ Kundallahalli",
+"Bengaluru - Vasanth Nagar", "Bengaluru Innovation Hub", 
+"Chennai - Sholinganallur", "Chennai - Shriram The Gateway SEZ",
+"Gurugram - DLF Cyber City", "Gurugram - Dundahera",
+"Gurugram - Udyog Vihar", "Hyderabad - Divyashree Orion Tower",
+"Hyderabad - HITEC City", "Hyderabad - The WaveRock Building",
+"Kolkata", "Mumbai - Godrej & Boyce Complex",
+"Mumbai - Godrej IT Park", "Mumbai - Infinity Park",
+"Mumbai - Mindspace, Serene Properties IT/ITES SEZ", 
+"Mumbai - Peninsula Corporate Park", "Navi Mumbai - Airoli Knowledge Park",
+"New Delhi", "Noida - Sector 135", "Noida - Sector 62",
+"Pune - Magarpatta City SEZ", "Pune - Qubix Business Parks",
+"Pune - SP Infocity"],
+
+"EmployeeGrade": ["Grade -1 Project Manager and other Manager categories",
+"Grade -2 Team Leaders and other similar positions",
+"Grade- 3 Software Developers",
+"Grade -4 trainees",
+"Grade -5 Support staff"],
+
+"EmployeeGroup": ["Group - D and C : 7th CPC Pay Levels 1 - 5", 
+"Group - B : 7th CPC Pay Level  6-9 (Non-Gazetted)",
+"Group - A : 7th CPC Pay Level 10 - 12 (Gazetted)",
+"Group - A : 7th CPC Pay Levels 13  -14 (Senior Level)",
+"HAG : 7th CPC Pay Levels 15-18 "],
+
+"EmployeeType": ["Full-time Hourly", "Part-time Salaried", "Contractor employee"],
+
+"PaymentOptions": ["Cash", "Checks", "Debit cards", "Credit cards", 
+"Mobile payments", "Electronic bank transfers"] 
+}
