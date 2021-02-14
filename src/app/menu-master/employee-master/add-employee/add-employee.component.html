@@ -33,10 +33,9 @@
                 <mat-label>Company</mat-label>
                 <!-- <input matInput> -->
                 <select matNativeControl formControlName="Company">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                  <option *ngFor="let i of companies" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
@@ -44,10 +43,9 @@
                 <mat-label>Department</mat-label>
                 <!-- <input matInput> -->
                 <select matNativeControl formControlName="Department">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                  <option *ngFor="let i of departments" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
@@ -55,34 +53,27 @@
                 <mat-label>Designation</mat-label>
                 <!-- <input matInput> -->
                 <select matNativeControl formControlName="Designation">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                  <option *ngFor="let i of designation" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Reporting To</mat-label>
                 <select matNativeControl formControlName="ReportingTo">
-                  <option value="volvo">Volvo</option>
-                  <option value="saab">Saab</option>
-                  <option value="mercedes">Mercedes</option>
-                  <option value="audi">Audi</option>
+                  <option *ngFor="let i of reportedTo" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Work Type</mat-label>
                 <select matNativeControl formControlName="WorkType">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of workTypes" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
@@ -124,70 +115,45 @@
               <mat-form-field appearance="fill">
                 <mat-label>Employment Type</mat-label>
                 <select matNativeControl formControlName="EmploymentType">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of employmentType" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Office Branch</mat-label>
                 <select matNativeControl formControlName="OfficeBranch">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of officeBranch" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Employee Grade</mat-label>
                 <select matNativeControl formControlName="EmployeeGrade">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of employeeGrade" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Employee Group</mat-label>
                 <select matNativeControl formControlName="EmployeeGroup">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of employeeGroup" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
               <mat-form-field appearance="fill">
                 <mat-label>Employee Type</mat-label>
                 <select matNativeControl formControlName="EmployeeType">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of employeeType" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
 
@@ -288,14 +254,9 @@
               <mat-form-field appearance="fill">
                 <mat-label>Payment Type</mat-label>
                 <select matNativeControl formControlName="PaymentType">
-                  <option value="Permanent">Permanent</option>
-                  <option value="Part Time">Part Time</option>
-                  <option value="Contract">Contract</option>
-                  <option value="Probation">Probation</option>
-                  <option value="Commission">Commission</option>
-                  <option value="Intern">Intern</option>
-                  <option value="Trainee">Trainee</option>
-                  <option value="Worker">Worker</option>
+                  <option *ngFor="let i of paymentOptions" value="{{ i }}">
+                    {{ i }}
+                  </option>
                 </select>
               </mat-form-field>
             </mat-expansion-panel>

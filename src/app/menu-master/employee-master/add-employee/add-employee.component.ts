@@ -1,9 +1,10 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { TitleService } from 'src/app/services/title.service';
-
+import  *  as  json_data  from  './addEmployee.json';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -55,31 +56,31 @@ export class AddEmployeeComponent implements OnInit {
     ContactAddress: [null, Validators.required],
 
   });
-  departments: Object;
-  workTypes: Object;
-  
+  departments = json_data.Department;
+  workTypes = json_data.WorkType;
+  companies = json_data.Company;
+  designation = json_data.Designation;
+  reportedTo = json_data.ReportedTo;
+  employmentType = json_data.EmploymentType;
+  officeBranch = json_data.OfficeBranch;
+  employeeGrade = json_data.EmployeeGrade;
+  employeeGroup = json_data.EmployeeGroup;
+  employeeType = json_data.EmployeeType;
+  paymentOptions = json_data.PaymentOptions;
+
   constructor(
     private titleService: TitleService,
     private fb: FormBuilder,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private httpService: HttpClient
   ) {
-    this.titleService.setTitle("AddEmployee")
-   }
+    this.titleService.setTitle("AddEmployee");
+    }
 
   ngOnInit(): void {
     this.titleService.getTitle().subscribe(appTitle => this.title = appTitle);
+   
     
-    // get all the departments
-    this.employeeService.departments().subscribe(
-      data => {
-        this.departments = data;
-    })
-
-    // get workTypes
-    this.employeeService.workTypes().subscribe(
-      data => {
-        this.workTypes = data;
-    })
   }
 
   save(){
