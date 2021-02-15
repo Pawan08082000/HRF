@@ -1,309 +1,318 @@
-<form [formGroup]="AddEmployeeForm" >
-    <mat-card class="container col-sm-8">
-        <div class="justify-content-between d-flex">
-    <mat-card-title>{{ title }}</mat-card-title>
-         
-        </div>
-        <hr />
-      
+<form [formGroup]="AddEmployeeForm">
+  <mat-card class="container col-sm-8">
+    <div class="justify-content-between d-flex">
+      <mat-card-title>{{ title }}</mat-card-title>
+    </div>
+    <hr />
+
     <mat-card-content class="dashboard-card-content">
-      
       <div class="row">
         <div class="col">
-  <mat-accordion class="example-headers-align" multi>
-      <!-- ------------------Basic Information---------------------------- -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Basic Information
-        </mat-panel-title>
-        <!-- <mat-panel-description>
+          <mat-accordion class="example-headers-align" multi>
+            <!-- ------------------Basic Information---------------------------- -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Basic Information </mat-panel-title>
+                <!-- <mat-panel-description>
           Type your name and age
           <mat-icon>account_circle</mat-icon>
         </mat-panel-description> -->
-      </mat-expansion-panel-header>
-  
-     
-      <mat-form-field>
-        <mat-label>Employee name</mat-label>
-        <input matInput formControlName="EmployeeName">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="Email">
-      </mat-form-field>
+              </mat-expansion-panel-header>
 
-       
-          <mat-form-field>
-            <mat-label>Company</mat-label>
-            <!-- <input matInput> -->
-            <select matNativeControl formControlName="Company">
-                <option *ngFor = "let i of companies"
-                value={{i}}>{{i}}</option>
-               
-              </select>
-          </mat-form-field>
-  
-          <mat-form-field>
-            <mat-label>Department</mat-label>
-            <!-- <input matInput> -->
-            <select matNativeControl formControlName="Department">
-                <option *ngFor = "let i of departments" value="{{i}}">{{i}}</option>
-               
-              </select>
-          </mat-form-field>
+              <mat-form-field>
+                <mat-label>Employee name</mat-label>
+                <input matInput formControlName="EmployeeName" />
+              </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Designation</mat-label>
-            <!-- <input matInput> -->
-            <select matNativeControl formControlName="Designation">
-                <option *ngFor = "let i of designation"
-                value={{i}}>{{i}}</option>
-                
-              </select>
-          </mat-form-field>
+              <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="Email" />
+              </mat-form-field>
 
-          <mat-form-field appearance="fill">
-            <mat-label>Reporting To</mat-label>
-            <select matNativeControl formControlName="ReportingTo">
-              <option *ngFor = "let i of reportedTo" value={{i}}>{{i}}</option>
-              
-            </select>
-          </mat-form-field>
+              <mat-form-field>
+                <mat-label>Company</mat-label>
+                <!-- <input matInput> -->
+                <select matNativeControl formControlName="Company">
+                  <option *ngFor="let i of companies" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-          <mat-form-field appearance="fill">
-            <mat-label>Work Type</mat-label>
-            <select matNativeControl formControlName="WorkType"
-            >
-              <option *ngFor = "let i of workTypes"
-              value={{i}}>{{i}}</option>
-              
-            </select>
-          </mat-form-field>
+              <mat-form-field>
+                <mat-label>Department</mat-label>
+                <!-- <input matInput> -->
+                <select matNativeControl formControlName="Department">
+                  <option *ngFor="let i of departments" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>DOB</mat-label>
-            <input matInput [matDatepicker]="DOB" (focus)="DOB.open()"
-            formControlName="DOB">
-          <mat-icon>date_range</mat-icon>
-          </mat-form-field>
-          <mat-datepicker #DOB></mat-datepicker>
+              <mat-form-field>
+                <mat-label>Designation</mat-label>
+                <!-- <input matInput> -->
+                <select matNativeControl formControlName="Designation">
+                  <option *ngFor="let i of designation" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-        
-          <mat-form-field>
-            <mat-label>Joining Date</mat-label>
-            <input matInput [matDatepicker]="join" (focus)="join.open()" 
-            formControlName="JoiningDate" >
-          <mat-icon>date_range</mat-icon>
-          </mat-form-field>
-          <mat-datepicker #join></mat-datepicker>
+              <mat-form-field appearance="fill">
+                <mat-label>Reporting To</mat-label>
+                <select matNativeControl formControlName="ReportingTo">
+                  <option *ngFor="let i of reportedTo" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
+              <mat-form-field appearance="fill">
+                <mat-label>Work Type</mat-label>
+                <select matNativeControl formControlName="WorkType">
+                  <option *ngFor="let i of workTypes" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-    </mat-expansion-panel>
+              <mat-form-field>
+                <mat-label>DOB</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="DOB"
+                  (focus)="DOB.open()"
+                  formControlName="DOB"
+                />
+                <mat-icon>date_range</mat-icon>
+              </mat-form-field>
+              <mat-datepicker #DOB></mat-datepicker>
 
-<!-- --------------------Work Information----------------------------- -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Work Information
-        </mat-panel-title>
-        <!-- <mat-panel-description>
+              <mat-form-field>
+                <mat-label>Joining Date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="join"
+                  (focus)="join.open()"
+                  formControlName="JoiningDate"
+                />
+                <mat-icon>date_range</mat-icon>
+              </mat-form-field>
+              <mat-datepicker #join></mat-datepicker>
+            </mat-expansion-panel>
+
+            <!-- --------------------Work Information----------------------------- -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Work Information </mat-panel-title>
+                <!-- <mat-panel-description>
           Type the country name
           <mat-icon>map</mat-icon>
         </mat-panel-description> -->
-      </mat-expansion-panel-header>
-  
-      
-      <mat-form-field appearance="fill">
-        <mat-label>Employment Type</mat-label>
-        <select matNativeControl formControlName="EmploymentType">
-          <option *ngFor = "let i of employmentType" value={{i}}>{{i}}</option>
-          
-        </select>
-      </mat-form-field>
+              </mat-expansion-panel-header>
 
-      
-      <mat-form-field appearance="fill">
-        <mat-label>Office Branch</mat-label>
-        <select matNativeControl formControlName="OfficeBranch">
-          <option *ngFor = "let i of officeBranch" value={{i}}>{{i}}</option>
-         
-        </select>
-      </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Employment Type</mat-label>
+                <select matNativeControl formControlName="EmploymentType">
+                  <option *ngFor="let i of employmentType" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-      
-      <mat-form-field appearance="fill">
-        <mat-label>Employee Grade</mat-label>
-        <select matNativeControl formControlName="EmployeeGrade">
-          <option *ngFor = "let i of employeeGrade" value={{i}}>{{i}}</option>
-          
-        </select>
-      </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Office Branch</mat-label>
+                <select matNativeControl formControlName="OfficeBranch">
+                  <option *ngFor="let i of officeBranch" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-      
-      <mat-form-field appearance="fill">
-        <mat-label>Employee Group</mat-label>
-        <select matNativeControl formControlName="EmployeeGroup">
-          <option *ngFor = "let i of employeeGroup" value={{i}}>{{i}}</option>
-          
+              <mat-form-field appearance="fill">
+                <mat-label>Employee Grade</mat-label>
+                <select matNativeControl formControlName="EmployeeGrade">
+                  <option *ngFor="let i of employeeGrade" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-        </select>
-      </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Employee Group</mat-label>
+                <select matNativeControl formControlName="EmployeeGroup">
+                  <option *ngFor="let i of employeeGroup" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-      
-      <mat-form-field appearance="fill">
-        <mat-label>Employee Type</mat-label>
-        <select matNativeControl formControlName="EmployeeType">
-          <option *ngFor = "let i of employeeType" value={{i}}>{{i}}</option>
-         
-        </select>
-      </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Employee Type</mat-label>
+                <select matNativeControl formControlName="EmployeeType">
+                  <option *ngFor="let i of employeeType" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Value</mat-label>
-        <input matInput formControlName="Value">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>Value</mat-label>
+                <input matInput formControlName="Value" />
+              </mat-form-field>
 
-      
-      <mat-form-field>
-        <mat-label>PF Account No.</mat-label>
-        <input matInput formControlName="PF">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>PF Account No.</mat-label>
+                <input matInput formControlName="PF" />
+              </mat-form-field>
 
-      
-      <mat-form-field>
-        <mat-label>ESI No.</mat-label>
-        <input matInput formControlName="ESI">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>ESI No.</mat-label>
+                <input matInput formControlName="ESI" />
+              </mat-form-field>
 
-      
-      <mat-form-field>
-        <mat-label>CIN No.</mat-label>
-        <input matInput formControlName="CIN">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>CIN No.</mat-label>
+                <input matInput formControlName="CIN" />
+              </mat-form-field>
 
-      
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="Address">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>Address</mat-label>
+                <input matInput formControlName="Address" />
+              </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Effective Date</mat-label>
-        <input matInput [matDatepicker]="Effective" (focus)="Effective.open()"
-        formControlName="EffectiveDate" >
-      <mat-icon>date_range</mat-icon>
-      </mat-form-field>
-      <mat-datepicker #Effective></mat-datepicker>
+              <mat-form-field>
+                <mat-label>Effective Date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="Effective"
+                  (focus)="Effective.open()"
+                  formControlName="EffectiveDate"
+                />
+                <mat-icon>date_range</mat-icon>
+              </mat-form-field>
+              <mat-datepicker #Effective></mat-datepicker>
 
-      <mat-form-field>
-        <mat-label>Leaving Date</mat-label>
-        <input matInput [matDatepicker]="Leaving" (focus)="Leaving.open()" 
-        formControlName="LeavingDate">
-      <mat-icon>date_range</mat-icon>
-      </mat-form-field>
-      <mat-datepicker #Leaving></mat-datepicker>
+              <mat-form-field>
+                <mat-label>Leaving Date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="Leaving"
+                  (focus)="Leaving.open()"
+                  formControlName="LeavingDate"
+                />
+                <mat-icon>date_range</mat-icon>
+              </mat-form-field>
+              <mat-datepicker #Leaving></mat-datepicker>
 
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."
-        formControlName="Description"></textarea>
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea
+                  matInput
+                  placeholder="Ex. It makes me feel..."
+                  formControlName="Description"
+                ></textarea>
+              </mat-form-field>
+            </mat-expansion-panel>
 
-    </mat-expansion-panel>
-  
-    <!-- ------------------------------Banking Information----------------------- -->
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Banking Information
-        </mat-panel-title>
-        <!-- <mat-panel-description>
+            <!-- ------------------------------Banking Information----------------------- -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Banking Information </mat-panel-title>
+                <!-- <mat-panel-description>
           Inform the date you wish to travel
           <mat-icon>date_range</mat-icon>
         </mat-panel-description> -->
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <mat-label>Bank Account No.</mat-label>
-        <input matInput formControlName="BankAccount">
-      </mat-form-field>
+              </mat-expansion-panel-header>
 
-      <mat-form-field>
-        <mat-label>Bank Name</mat-label>
-        <input matInput formControlName="BankName">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>Bank Account No.</mat-label>
+                <input matInput formControlName="BankAccount" />
+              </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Bank Branch</mat-label>
-        <input matInput formControlName="BankBranch">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>Bank Name</mat-label>
+                <input matInput formControlName="BankName" />
+              </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>PAN</mat-label>
-        <input matInput formControlName="PAN">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>Bank Branch</mat-label>
+                <input matInput formControlName="BankBranch" />
+              </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>IFSC Code</mat-label>
-        <input matInput formControlName="IFSC">
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>PAN</mat-label>
+                <input matInput formControlName="PAN" />
+              </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Payment Type</mat-label>
-        <select matNativeControl formControlName="PaymentType">
-          <option *ngFor = "let i of paymentOptions" 
-          value={{i}}>{{i}}</option>
-          
-        </select>
-      </mat-form-field>
+              <mat-form-field>
+                <mat-label>IFSC Code</mat-label>
+                <input matInput formControlName="IFSC" />
+              </mat-form-field>
 
-    </mat-expansion-panel>
+              <mat-form-field appearance="fill">
+                <mat-label>Payment Type</mat-label>
+                <select matNativeControl formControlName="PaymentType">
+                  <option *ngFor="let i of paymentOptions" value="{{ i }}">
+                    {{ i }}
+                  </option>
+                </select>
+              </mat-form-field>
+            </mat-expansion-panel>
 
-    <!-- -------------------------Emergency Contact-------------------------- -->
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Emergency Contact
-          </mat-panel-title>
-          <!-- <mat-panel-description>
+            <!-- -------------------------Emergency Contact-------------------------- -->
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title> Emergency Contact </mat-panel-title>
+                <!-- <mat-panel-description>
             Inform the date you wish to travel
             <mat-icon>date_range</mat-icon>
           </mat-panel-description> -->
-        </mat-expansion-panel-header>
-    
-        <mat-form-field>
-            <mat-label>Emergency Contact Name</mat-label>
-            <input matInput formControlName="ContactName">
-          </mat-form-field> 
-          
-          <mat-form-field>
-            <mat-label>Emergency Contact Mobile</mat-label>
-            <input matInput formControlName="ContactMobile">
-          </mat-form-field> 
-          
-          <mat-form-field>
-            <mat-label>Emergency Contact Email</mat-label>
-            <input matInput formControlName="ContactEmail">
-          </mat-form-field>
-          
-          <mat-form-field>
-            <mat-label>Emergency Contact Address</mat-label>
-            <input matInput formControlName="ContactAddress">
-          </mat-form-field>
-       
-      </mat-expansion-panel>
-  </mat-accordion>
-  
-  <mat-card-actions>
-    <button mat-raised-button color="primary" type="submit" (click)=save()>save</button>
-    <button mat-raised-button color="primary" type="submit" (click)=back()>Back</button>
+              </mat-expansion-panel-header>
 
-  </mat-card-actions>
+              <mat-form-field>
+                <mat-label>Emergency Contact Name</mat-label>
+                <input matInput formControlName="ContactName" />
+              </mat-form-field>
 
-  </div>
-  </div>
-  </mat-card-content>
-    </mat-card>
+              <mat-form-field>
+                <mat-label>Emergency Contact Mobile</mat-label>
+                <input matInput formControlName="ContactMobile" />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Emergency Contact Email</mat-label>
+                <input matInput formControlName="ContactEmail" />
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Emergency Contact Address</mat-label>
+                <input matInput formControlName="ContactAddress" />
+              </mat-form-field>
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <mat-card-actions>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              (click)="save()"
+            >
+              save
+            </button>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              (click)="back()"
+            >
+              Back
+            </button>
+          </mat-card-actions>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </form>
