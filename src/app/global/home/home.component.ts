@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import {HrRolesService} from '../../services/hr-roles.service'
 
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
 
   roles:any;
 
-  constructor(private hrroleService: HrRolesService) {}
+  constructor(private hrroleService: HrRolesService,
+    private route: Router) {}
 
   ngOnInit(): void {
     this.hrroleService.gethrRoles().subscribe(data =>{
@@ -23,4 +25,9 @@ export class HomeComponent implements OnInit {
     }))
   }
 
+  navigation(role){
+    if(role.title == "Menu Master"){
+      this.route.navigateByUrl("/menuMaster/emplMaster/emplSearch")
+    }
+  }
 }

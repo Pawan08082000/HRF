@@ -37,7 +37,7 @@ export class AddEmployeeComponent implements OnInit {
     PF: [null, Validators.required],
     ESI: [null, Validators.required],
     CIN: [null, Validators.required],
-    LeavingDate: [null, Validators.required],
+    LeavingDate: [null],
     Address: [null, Validators.required],
     Description: [null, Validators.required],
     
