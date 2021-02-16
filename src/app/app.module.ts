@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { GlobalModule } from './global/global.module';
 
 import {MenuMasterModule} from './menu-master/menu-master.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,8 @@ import {MenuMasterModule} from './menu-master/menu-master.module';
     GlobalModule,
     AuthModule,
     HttpClientModule,
-    MenuMasterModule
+    MenuMasterModule,
+    MatSnackBarModule
   ],
   providers: [
     {

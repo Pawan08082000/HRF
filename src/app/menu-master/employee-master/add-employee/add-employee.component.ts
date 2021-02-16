@@ -5,6 +5,7 @@ import { MatAccordion } from '@angular/material/expansion';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { TitleService } from 'src/app/services/title.service';
 import  *  as  json_data  from  './addEmployee.json';
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -67,12 +68,13 @@ export class AddEmployeeComponent implements OnInit {
   employeeGroup = json_data.EmployeeGroup;
   employeeType = json_data.EmployeeType;
   paymentOptions = json_data.PaymentOptions;
+  errorMessage: any;
 
   constructor(
     private titleService: TitleService,
     private fb: FormBuilder,
     private employeeService: EmployeeService,
-    private httpService: HttpClient
+    private _snackBar: MatSnackBar
   ) {
     this.titleService.setTitle("AddEmployee");
     }
@@ -88,8 +90,26 @@ export class AddEmployeeComponent implements OnInit {
 
     this.employeeService.addEmployee(this.AddEmployeeForm.value).subscribe(
       data => {
-    console.log('data saved')
+        console.log("line 93")
         
+        
+      },
+
+      (err) => {
+        if(err.error._message == undefined){
+          this._snackBar.open("Employee Successfully Added", "OK", {
+            duration: 2000,
+        })
+        }
+        else{
+          console.log(err.error._message)
+          this.errorMessage = err.error._message;
+          this._snackBar.open(this.errorMessage, "OK", {
+            duration: 2000,
+        })
+        
+        }
+         
       }
     )
 
