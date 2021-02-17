@@ -13,7 +13,7 @@ export class EmployeeService {
 
   API = 'http://127.0.0.1:9000/api/';
   addEmpl = "menuMaster/insert";
-  
+  showEmpl = "menuMaster/show";
  httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -22,5 +22,8 @@ addEmployee(empl_details): Observable<any> {
   return this.http.post(this.API + this.addEmpl, empl_details, this.httpOptions);
 }
 
+showEmployee(): Observable<any>{
+  return this.http.get(this.API+this.showEmpl, this.httpOptions)
+}
 
 }

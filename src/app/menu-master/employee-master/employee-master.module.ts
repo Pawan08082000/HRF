@@ -16,11 +16,14 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ShowEmployeesComponent } from './show-employees/show-employees.component';
 
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 @NgModule({
-  declarations: [SearchEmployeeComponent, AddEmployeeComponent],
+  declarations: [SearchEmployeeComponent, AddEmployeeComponent, ShowEmployeesComponent],
   imports: [
     CommonModule,
     EmployeeMasterRoutingModule,
@@ -36,7 +39,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatExpansionModule,
     MatInputModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule,
+    MatProgressSpinnerModule,
   ],
   providers:[MatNativeDateModule ]
 })
