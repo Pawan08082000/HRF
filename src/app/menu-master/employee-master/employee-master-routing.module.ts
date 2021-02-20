@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SearchEmployeeComponent } from './search-employee/search-employee.component';
 import { LoggedInAuthGuard } from 'src/app/auth/auth.guard';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import { ShowEmployeesComponent } from './show-employees/show-employees.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
         component: AddEmployeeComponent,
         // canActivate: [LoggedInAuthGuard],
       },
+      {
+        path: 'showEmployee/:q',
+        component: ShowEmployeesComponent
+      }
     ],
   },
   
