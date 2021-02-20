@@ -4,12 +4,12 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { TitleService } from 'src/app/services/title.service';
-import  *  as  json_data  from  './addEmployee.json';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import * as json_data from './addEmployee.json';
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.scss']
+  styleUrls: ['./add-employee.component.scss'],
 })
 export class AddEmployeeComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
@@ -41,7 +41,7 @@ export class AddEmployeeComponent implements OnInit {
     LeavingDate: [null],
     Address: [null, Validators.required],
     Description: [null, Validators.required],
-    
+
     // Banking Information
     BankAccount: [null, Validators.required],
     BankName: [null, Validators.required],
@@ -55,7 +55,6 @@ export class AddEmployeeComponent implements OnInit {
     ContactMobile: [null, Validators.required],
     ContactEmail: [null, Validators.required],
     ContactAddress: [null, Validators.required],
-
   });
   departments = json_data.Department;
   workTypes = json_data.WorkType;
@@ -76,46 +75,45 @@ export class AddEmployeeComponent implements OnInit {
     private employeeService: EmployeeService,
     private _snackBar: MatSnackBar
   ) {
-    this.titleService.setTitle("AddEmployee");
-    }
-
-  ngOnInit(): void {
-    this.titleService.getTitle().subscribe(appTitle => this.title = appTitle);
-   
-    
+    this.titleService.setTitle('AddEmployee');
   }
 
-  save(){
-    console.log(this.AddEmployeeForm.value)
+  ngOnInit(): void {
+    this.titleService
+      .getTitle()
+      .subscribe((appTitle) => (this.title = appTitle));
+  }
+
+  save() {
+    console.log(this.AddEmployeeForm.value);
 
     this.employeeService.addEmployee(this.AddEmployeeForm.value).subscribe(
-      data => {
-        console.log("line 93")
-        
-        
+      (data) => {
+        console.log('line 93');
       },
 
       (err) => {
-        if(err.error._message == undefined){
-          this._snackBar.open("Employee Successfully Added", "OK", {
+        console.log(err.error);
+        if (err.error == 'Fill all the required fields') {
+          this._snackBar.open(err.error, 'ok', {
             duration: 2000,
-        })
-        }
-        else{
-          console.log(err.error._message)
+          });
+        } else if (err.error._message == undefined) {
+          this._snackBar.open('Employee Successfully Added', 'OK', {
+            duration: 2000,
+          });
+        } else {
+          console.log(err.error._message);
           this.errorMessage = err.error._message;
-          this._snackBar.open(this.errorMessage, "OK", {
+          this._snackBar.open(this.errorMessage, 'OK', {
             duration: 2000,
-        })
-        
+          });
         }
-         
       }
-    )
-
+    );
   }
 
-  back(){
-    console.log('go to previous slide')
+  back() {
+    console.log('go to previous slide');
   }
 }
