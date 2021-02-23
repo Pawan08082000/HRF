@@ -39,19 +39,19 @@ export class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem('auth-user');
-    sessionStorage.removeItem('auth-token');
+    localStorage.removeItem('auth-user');
+    localStorage.removeItem('auth-token');
   }
 
   isLoggedIn() {
-    if (sessionStorage.getItem('auth-user') && sessionStorage.getItem('auth-token')) {
+    if (localStorage.getItem('auth-user') && localStorage.getItem('auth-token')) {
       return true;
     }
     return false;
   }
 
   getAuthorizationToken() {
-    const currentUser = JSON.parse(sessionStorage.getItem('auth-token'));
+    const currentUser = JSON.parse(localStorage.getItem('auth-token'));
     return currentUser.token;
   }
 

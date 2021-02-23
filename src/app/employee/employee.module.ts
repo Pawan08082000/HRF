@@ -10,6 +10,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';  
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,10 @@ import { MatButtonModule } from '@angular/material/button';
     EmployeeProfileComponent,
     EditEmployeeProfileComponent,
   ],
-  imports: [CommonModule,    MatButtonModule,
+  imports: [CommonModule,    MatButtonModule,MatDatepickerModule,
     MatCardModule,MatIconModule,
-    EmployeeRoutingModule, MatListModule,MatToolbarModule],
+    EmployeeRoutingModule, MatListModule,MatToolbarModule,    MatSelectModule,
+    MatButtonModule,
+    MatInputModule,],
 })
 export class EmployeeModule {}
