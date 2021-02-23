@@ -14,7 +14,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AddEmployeeComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   title: String;
-
+  isLinear = false;
+  
   AddEmployeeForm = this.fb.group({
     // basic Information
     EmployeeName: [null, Validators.required],

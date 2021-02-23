@@ -21,6 +21,7 @@ import { ShowEmployeesComponent } from './show-employees/show-employees.componen
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [SearchEmployeeComponent, AddEmployeeComponent, ShowEmployeesComponent],
@@ -42,6 +43,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatNativeDateModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatStepperModule
   ],
   providers:[MatNativeDateModule ]
 })

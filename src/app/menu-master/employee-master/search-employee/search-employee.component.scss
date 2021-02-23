@@ -15,7 +15,7 @@ h1{
 
     .mat-form-field{
         font-size:20px;
-
+        margin: 5px;
     }
     .mat-form-actions{
         font-size:20px;
@@ -24,6 +24,11 @@ h1{
 button{
     background: linear-gradient(to right, #f43b48 0%, #453a94 100%);
     color: #fff;
+}
+p{
+    display: inline;
+    margin: 5px;
+    color: darkblue;
 }
 .alert-success{
     margin-bottom: 10px;
