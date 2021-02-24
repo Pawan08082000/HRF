@@ -9,12 +9,12 @@ import { EmployeeService } from 'src/app/services/employee.service';
 })
 export class ShowEmployeesComponent implements OnInit {
   ELEMENT_DATA = [];
-
+  id;
   displayedColumns: string[] = [
-    'EmployeeCode',
     'EmployeeName',
-    'Department',
     'EmailId',
+    'Company',
+    'Department',
     'Designation',
     'WorkType',
     'ReportedTo',
@@ -35,8 +35,9 @@ export class ShowEmployeesComponent implements OnInit {
         console.log(data);
 
         for (let i in data) {
+          this.id = data[i]._id;
           this.ELEMENT_DATA.push({
-            EmployeeCode: data[i].EmployeeId,
+            Company: data[i].Company,
             EmployeeName: data[i].EmployeeName,
             Department: data[i].Department,
             EmailId: data[i].Email,

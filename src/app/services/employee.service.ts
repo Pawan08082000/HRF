@@ -11,10 +11,11 @@ export class EmployeeService {
     private http: HttpClient
   ) { }
 
-  API = 'http://127.0.0.1:9000/api/';
-  addEmpl = "menuMaster/insert";
-  showEmpl = "menuMaster/show";
-  searchEmpl = "menuMaster/search";
+  private API = 'http://127.0.0.1:9000/api/';
+  private addEmpl = "menuMaster/insert";
+  private showEmpl = "menuMaster/show";
+  private searchEmpl = "menuMaster/search";
+ private getEmpl = "menuMaster/emp/"
 
  httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -30,6 +31,10 @@ showEmployee(): Observable<any>{
 
 searchEmployee(searchData):Observable<any>{
   return this.http.get(`${this.API}${this.searchEmpl}/${searchData}`, this.httpOptions)
+}
+
+getEmployee(id:string):Observable<any>{
+  return this.http.get(this.API+this.getEmpl+id, this.httpOptions)
 }
 
 }
