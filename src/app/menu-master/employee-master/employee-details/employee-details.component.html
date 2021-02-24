@@ -2,108 +2,291 @@
   <div class="row">
     <img src="../../../assets/profile.jpg" class="rounded avtar" alt="" />
     <div class="float-left ml-2 h1">
-      <mat-card-title>Welcome, Pawan</mat-card-title>
-      <mat-card-subtitle>joining Date</mat-card-subtitle>
+      <h3 class="name">Welcome, {{ this.employee.EmployeeName }}</h3>
+
+      <mat-card-subtitle>{{
+        this.employee.JoiningDate | date
+      }}</mat-card-subtitle>
     </div>
   </div>
 </mat-card>
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-sm-8">
+    <div class="col-md-4 col-sm-4">
       <mat-card>
-        <mat-card-title class="justify-content-between"
-          >Details
-          <mat-icon>edit</mat-icon>
+        <mat-card-title class="dash"
+          >Basic Info
+          <a routerLink="/menuMaster/emplMaster/addEmployee"
+            ><mat-icon>edit</mat-icon></a
+          >
         </mat-card-title>
 
-        <mat-card-content>
-          <mat-card-subtitle>Basic Info</mat-card-subtitle>
+        <mat-card-content class="dash">
+          <mat-card-content
+            >Employee Name :
+            <b class="dash-1">{{
+              this.employee.EmployeeName
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Date Of Birth :
+            <b class="dash-1">{{
+              this.employee.DOB | date
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Email :
+            <b class="dash-1">{{ this.employee.Email }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Company :
+            <b class="dash-1">{{ this.employee.Company }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Department :
+            <b class="dash-1">{{
+              this.employee.Department
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Designation :
+            <b class="dash-1">{{
+              this.employee.Designation
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Reporting To :
+            <b class="dash-1">{{
+              this.employee.ReportingTo
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Work Type :
+            <b class="dash-1">{{ this.employee.WorkType }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Joining Date :
+            <b class="dash-1">{{ this.employee.JoiningDate | date }}</b>
+          </mat-card-content>
         </mat-card-content>
-        <mat-card-content>
-          <mat-card-subtitle>Work Info</mat-card-subtitle>
+      </mat-card>
+      <mat-card>
+        <mat-card-title class="dash"
+          >Emergency Contact
+          <a routerLink="/menuMaster/emplMaster/addEmployee"
+            ><mat-icon>edit</mat-icon></a
+          >
+        </mat-card-title>
+        <mat-card-content class="dash">
+          <mat-card-content
+            >Name :
+            <b class="dash-1">{{
+              this.employee.ContactName
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Mobile :
+            <b class="dash-1">{{
+              this.employee.ContactMobile
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Email :
+            <b class="dash-1">{{
+              this.employee.ContactEmail
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Address :
+            <b class="dash-1">{{
+              this.employee.ContactAddress
+            }}</b></mat-card-content
+          >
         </mat-card-content>
-        <mat-card-content>
-          <mat-card-subtitle>Banking Info</mat-card-subtitle>
-        </mat-card-content>
-        <mat-card-content>
-          <mat-card-subtitle>Emergency Info</mat-card-subtitle>
+      </mat-card>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <mat-card>
+        <mat-card-title class="dash"
+          >Work Info
+          <a routerLink="/menuMaster/emplMaster/addEmployee"
+            ><mat-icon>edit</mat-icon></a
+          >
+        </mat-card-title>
+        <mat-card-content class="dash">
+          <mat-card-content
+            >Employment Type :
+            <b class="dash-1">{{
+              this.employee.EmploymentType
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Office Branch :
+            <b class="dash-1">{{
+              this.employee.OfficeBranch
+            }}</b></mat-card-content
+          ><mat-card-content
+            >Employee Grade :
+            <b class="dash-1">{{
+              this.employee.EmployeeGrade
+            }}</b></mat-card-content
+          ><mat-card-content
+            >Employee Group :
+            <b class="dash-1">{{
+              this.employee.EmployeeGroup
+            }}</b></mat-card-content
+          ><mat-card-content
+            >Employee Type :
+            <b class="dash-1">{{
+              this.employee.EmployeeType
+            }}</b></mat-card-content
+          ><mat-card-content
+            >Value :
+            <b class="dash-1">{{ this.employee.Value }}</b></mat-card-content
+          ><mat-card-content
+            >PF Account No :
+            <b class="dash-1">{{ this.employee.PF }}</b></mat-card-content
+          ><mat-card-content
+            >ESI Account No :
+            <b class="dash-1">{{ this.employee.ESI }}</b></mat-card-content
+          ><mat-card-content
+            >CIN No :
+            <b class="dash-1">{{ this.employee.CIN }}</b></mat-card-content
+          ><mat-card-content
+            >Address :
+            <b class="dash-1">{{ this.employee.Address }}</b></mat-card-content
+          ><mat-card-content
+            >Effective Date :
+            <b class="dash-1">{{
+              this.employee.EffectiveDate | date
+            }}</b></mat-card-content
+          ><mat-card-content
+            >Leaving Date :
+            <b class="dash-1">{{
+              this.employee.LeavingDate | date
+            }}</b></mat-card-content
+          ><mat-card-content
+            >Description :
+            <b class="dash-1">{{
+              this.employee.Description
+            }}</b></mat-card-content
+          >
         </mat-card-content>
       </mat-card>
     </div>
     <div class="col-md-4 col-sm-4">
       <mat-card>
-        <mat-card-title>Projects </mat-card-title>
+        <mat-card-title class="dash">Projects </mat-card-title>
         <div class="row">
           <mat-card-content class="col-sm-6"
-            ><h1 class="num">71</h1>
-            <h2 class="num">Total tasks</h2></mat-card-content
+            ><h1 class="dash">71</h1>
+            <h2 class="dash-1">Total tasks</h2></mat-card-content
           >
           <div class="vl"></div>
           <mat-card-content class="col-sm-5"
-            ><h1 class="num">14</h1>
-            <h2 class="num">Pending tasks</h2></mat-card-content
+            ><h1 class="dash">14</h1>
+            <h2 class="dash-1">Pending tasks</h2></mat-card-content
           >
         </div>
         <div class="col">
-          <h1 class="num-1">2</h1>
-          <h1 class="num-1">Total Projects</h1>
+          <h1 class="dash">2</h1>
+          <h1 class="dash-1">Total Projects</h1>
         </div>
       </mat-card>
       <mat-card>
-        <mat-card-title>Leave </mat-card-title>
+        <mat-card-title class="dash">Leave </mat-card-title>
         <div class="row">
           <mat-card-content class="col-sm-6">
-            <h1 class="num">4.5</h1>
-            <h2 class="num">Leave Taken</h2></mat-card-content
+            <h1 class="dash">4.5</h1>
+            <h2 class="dash-1">Leave Taken</h2></mat-card-content
           >
           <div class="vl"></div>
           <mat-card-content class="col-sm-5"
-            ><h1 class="num">12</h1>
-            <h2 class="num">Remaining</h2></mat-card-content
+            ><h1 class="dash">12</h1>
+            <h2 class="dash-1">Remaining</h2></mat-card-content
           >
         </div>
-        <div class="col num-1">
+        <div class="col dash-1">
           <button mat-raised-button>Apply Leave</button>
         </div>
       </mat-card>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-6 col-sm-6">
       <mat-card>
-        <mat-card-title>Time Allowance </mat-card-title>
+        <mat-card-title class="dash">Time Allowance </mat-card-title>
         <div class="row">
           <mat-card-content class="col-sm-6">
-            <h1 class="num">4.5</h1>
-            <h2 class="num">Leave Taken</h2></mat-card-content
+            <h1 class="dash">4.5</h1>
+            <h2 class="dash-1">Leave Taken</h2></mat-card-content
           >
           <div class="vl"></div>
           <mat-card-content class="col-sm-5"
-            ><h1 class="num">12</h1>
-            <h2 class="num">Remaining</h2></mat-card-content
+            ><h1 class="dash">12</h1>
+            <h2 class="dash-1">Remaining</h2></mat-card-content
           >
         </div>
-        <div class="row container num-1">
+        <div class="row container dash-1">
           <button mat-raised-button>Apply Time Off</button>
         </div>
       </mat-card>
     </div>
+  </div>
+  <div class="row">
     <div class="col-md-6 col-sm-6">
       <mat-card>
-        <mat-card-title>Upcoming Holiday </mat-card-title>
+        <mat-card-title class="dash"
+          >Banking Info
+          <a routerLink="/menuMaster/emplMaster/addEmployee"
+            ><mat-icon>edit</mat-icon></a
+          >
+        </mat-card-title>
+        <mat-card-content class="dash">
+          <mat-card-content
+            >Bank Account No :
+            <b class="dash-1">{{
+              this.employee.BankAccount
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Bank Name :
+            <b class="dash-1">{{ this.employee.BankName }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Bank Branch :
+            <b class="dash-1">{{
+              this.employee.BankBranch
+            }}</b></mat-card-content
+          >
+          <mat-card-content
+            >PAN :
+            <b class="dash-1">{{ this.employee.PAN }}</b></mat-card-content
+          >
+          <mat-card-content
+            >IFSC Code :
+            <b class="dash-1">{{ this.employee.IFSC }}</b></mat-card-content
+          >
+          <mat-card-content
+            >Payment Type :
+            <b class="dash-1">{{
+              this.employee.PaymentType
+            }}</b></mat-card-content
+          >
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <mat-card>
+        <mat-card-title class="dash">Upcoming Holiday </mat-card-title>
         <div class="row">
           <mat-card-content class="col-sm-6">
-            <h1 class="num">4.5</h1>
-            <h2 class="num">Leave Taken</h2></mat-card-content
+            <h1 class="dash">4.5</h1>
+            <h2 class="dash-1">Leave Taken</h2></mat-card-content
           >
           <div class="vl"></div>
           <mat-card-content class="col-sm-5"
-            ><h1 class="num">12</h1>
-            <h2 class="num">Remaining</h2></mat-card-content
+            ><h1 class="dash">12</h1>
+            <h2 class="dash-1">Remaining</h2></mat-card-content
           >
         </div>
-        <div class="col num-1">
+        <div class="col dash-1">
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" />
@@ -116,12 +299,11 @@
       </mat-card>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="row">
-    <mat-card class="">
-      <mat-card-title>Today Programs</mat-card-title>
-    </mat-card>
+    <div class="col-md-12 col-sm-12">
+      <mat-card class="">
+        <mat-card-title class="dash">Today Programs</mat-card-title>
+      </mat-card>
+    </div>
   </div>
 </div>
