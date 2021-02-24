@@ -5,6 +5,7 @@ import { SearchEmployeeComponent } from './search-employee/search-employee.compo
 import { LoggedInAuthGuard } from 'src/app/auth/auth.guard';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { ShowEmployeesComponent } from './show-employees/show-employees.component';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'showEmployee/:q',
         component: ShowEmployeesComponent
+      },
+      {
+        path: 'empDetails',
+        component: EmployeeDetailsComponent
       }
     ],
   },

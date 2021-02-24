@@ -9,12 +9,13 @@
 </mat-card>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-8 col-sm-8">
       <mat-card>
         <mat-card-title class="justify-content-between"
           >Details
           <mat-icon>edit</mat-icon>
         </mat-card-title>
+
         <mat-card-content>
           <mat-card-subtitle>Basic Info</mat-card-subtitle>
         </mat-card-content>
@@ -29,7 +30,7 @@
         </mat-card-content>
       </mat-card>
     </div>
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-4 col-sm-4">
       <mat-card>
         <mat-card-title>Projects </mat-card-title>
         <div class="row">
@@ -67,8 +68,7 @@
       </mat-card>
     </div>
   </div>
-</div>
-<div class="container">
+
   <div class="row">
     <div class="col-md-6 col-sm-6">
       <mat-card>
@@ -104,13 +104,14 @@
           >
         </div>
         <div class="col num-1">
-          <button mat-raised-button>Company Calander</button>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Choose a date</mat-label>
             <input matInput [matDatepicker]="picker" />
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <button mat-raised-button (click)="picker.open()">Open</button>
+          <button mat-raised-button (click)="picker.open()">
+            Company Calander
+          </button>
         </div>
       </mat-card>
     </div>

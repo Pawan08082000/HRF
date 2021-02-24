@@ -20,10 +20,11 @@ import { ShowEmployeesComponent } from './show-employees/show-employees.componen
 
 import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
 
 @NgModule({
-  declarations: [SearchEmployeeComponent, AddEmployeeComponent, ShowEmployeesComponent],
+  declarations: [SearchEmployeeComponent, AddEmployeeComponent, ShowEmployeesComponent, EmployeeDetailsComponent],
   imports: [
     CommonModule,
     EmployeeMasterRoutingModule,
