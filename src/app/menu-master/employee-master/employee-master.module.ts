@@ -22,6 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [SearchEmployeeComponent, AddEmployeeComponent, ShowEmployeesComponent, EmployeeDetailsComponent],
@@ -43,6 +44,7 @@ import { EmployeeDetailsComponent } from './employee-details/employee-details.co
     MatNativeDateModule,
     MatTableModule,
     MatProgressSpinnerModule,
+    MatStepperModule
   ],
   providers:[MatNativeDateModule ]
 })
