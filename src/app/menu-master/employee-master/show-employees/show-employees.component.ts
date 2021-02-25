@@ -18,6 +18,7 @@ export class ShowEmployeesComponent implements OnInit {
     'Designation',
     'WorkType',
     'ReportedTo',
+    'Edit'
   ];
   dataSource: any;
 
@@ -44,6 +45,8 @@ export class ShowEmployeesComponent implements OnInit {
             Designation: data[i].Designation,
             WorkType: data[i].WorkType,
             ReportedTo: data[i].ReportingTo,
+            Id: data[i]._id,
+
             // Edit: "flight_land"
           });
         }
@@ -53,8 +56,8 @@ export class ShowEmployeesComponent implements OnInit {
     }
   }
 
-  editEmployee() {
-    console.log('edit');
+  editEmployee(object) {
+    this.router.navigateByUrl(`/menuMaster/emplMaster/empDetails/${object.Id}`)
   }
 
   // applyFilter(event: Event) {

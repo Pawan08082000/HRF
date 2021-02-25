@@ -69,3 +69,6 @@
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
+<app-sub-header
+*ngIf="router.url !== '/home' && router.url !== '/emp/profile' "
+></app-sub-header>
