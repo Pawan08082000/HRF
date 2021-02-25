@@ -1,16 +1,15 @@
-<br>
-<br>
+<br />
+<br />
 
 <form [formGroup]="AddEmployeeForm">
-
-<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  <!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
   {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
 </button> -->
-<mat-horizontal-stepper [linear]="isLinear" #stepper>
-  <mat-step [stepControl]="AddEmployeeForm">
-    <!-- <form [formGroup]="AddEmployeeForm"> -->
+  <mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="AddEmployeeForm">
+      <!-- <form [formGroup]="AddEmployeeForm"> -->
       <ng-template matStepLabel>Basic Information</ng-template>
-      
+
       <mat-form-field>
         <mat-label>Employee name</mat-label>
         <input matInput formControlName="EmployeeName" />
@@ -94,14 +93,15 @@
       <mat-datepicker #join></mat-datepicker>
 
       <div>
-        <button mat-button mat-raised-button
-        color="primary" matStepperNext>Next</button>
+        <button mat-button mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
       </div>
-    <!-- </form> -->
-  </mat-step>
-  <mat-step [stepControl]="AddEmployeeForm" label="Work Information">
-    <!-- <form [formGroup]="AddEmployeeForm"> -->
-      
+      <!-- </form> -->
+    </mat-step>
+    <mat-step [stepControl]="AddEmployeeForm" label="Work Information">
+      <!-- <form [formGroup]="AddEmployeeForm"> -->
+
       <mat-form-field appearance="fill">
         <mat-label>Employment Type</mat-label>
         <select matNativeControl formControlName="EmploymentType">
@@ -205,60 +205,64 @@
         ></textarea>
       </mat-form-field>
       <div>
-        <button mat-button mat-raised-button
-        color="primary" matStepperPrevious>Back</button>
-        <button mat-button mat-raised-button
-        color="primary" matStepperNext>Next</button>
+        <button mat-button mat-raised-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-button mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
       </div>
-    <!-- </form> -->
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Banking Information</ng-template>
-    <p>You are now done.</p>
-    
-    <mat-form-field>
-      <mat-label>Bank Account No.</mat-label>
-      <input matInput formControlName="BankAccount" />
-    </mat-form-field>
+      <!-- </form> -->
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Banking Information</ng-template>
+      <p>You are now done.</p>
 
-    <mat-form-field>
-      <mat-label>Bank Name</mat-label>
-      <input matInput formControlName="BankName" />
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Bank Account No.</mat-label>
+        <input matInput formControlName="BankAccount" />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Bank Branch</mat-label>
-      <input matInput formControlName="BankBranch" />
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Bank Name</mat-label>
+        <input matInput formControlName="BankName" />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>PAN</mat-label>
-      <input matInput formControlName="PAN" />
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Bank Branch</mat-label>
+        <input matInput formControlName="BankBranch" />
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>IFSC Code</mat-label>
-      <input matInput formControlName="IFSC" />
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>PAN</mat-label>
+        <input matInput formControlName="PAN" />
+      </mat-form-field>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Payment Type</mat-label>
-      <select matNativeControl formControlName="PaymentType">
-        <option *ngFor="let i of paymentOptions" value="{{ i }}">
-          {{ i }}
-        </option>
-      </select>
-    </mat-form-field>
-    <div>
-      <button mat-button mat-raised-button
-      color="primary" matStepperPrevious>Back</button>
-      <button mat-button mat-raised-button
-        color="primary" matStepperNext>Next</button>
-    </div>
-  </mat-step>
-  <mat-step [stepControl]="AddEmployeeForm" label="Emergency Contact">
-    <!-- <form [formGroup]="AddEmployeeForm"> -->
-     
+      <mat-form-field>
+        <mat-label>IFSC Code</mat-label>
+        <input matInput formControlName="IFSC" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Payment Type</mat-label>
+        <select matNativeControl formControlName="PaymentType">
+          <option *ngFor="let i of paymentOptions" value="{{ i }}">
+            {{ i }}
+          </option>
+        </select>
+      </mat-form-field>
+      <div>
+        <button mat-button mat-raised-button color="primary" matStepperPrevious>
+          Back
+        </button>
+        <button mat-button mat-raised-button color="primary" matStepperNext>
+          Next
+        </button>
+      </div>
+    </mat-step>
+    <mat-step [stepControl]="AddEmployeeForm" label="Emergency Contact">
+      <!-- <form [formGroup]="AddEmployeeForm"> -->
+
       <mat-form-field>
         <mat-label>Emergency Contact Name</mat-label>
         <input matInput formControlName="ContactName" />
@@ -279,23 +283,19 @@
         <input matInput formControlName="ContactAddress" />
       </mat-form-field>
       <div>
-        <button mat-button mat-raised-button
-        color="primary" matStepperPrevious>Back</button>
+        <button mat-button mat-raised-button color="primary" matStepperPrevious>
+          Back
+        </button>
         <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              (click)="save()"
-            >
-              save
-            </button>
+          mat-raised-button
+          color="primary"
+          type="submit"
+          (click)="save()"
+        >
+          save
+        </button>
       </div>
-    <!-- </form> -->
-  </mat-step>
-</mat-horizontal-stepper>
-
-
+      <!-- </form> -->
+    </mat-step>
+  </mat-horizontal-stepper>
 </form>
-
-
-

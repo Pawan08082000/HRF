@@ -6,6 +6,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import { TitleService } from 'src/app/services/title.service';
 import * as json_data from './addEmployee.json';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -15,10 +16,10 @@ export class AddEmployeeComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   title: String;
   isLinear = false;
-  
+
   AddEmployeeForm = this.fb.group({
     // basic Information
-    EmployeeName: [null, Validators.required],
+    EmployeeName:[null, Validators.required],
     Company: [null, Validators.required],
     Department: [null, Validators.required],
     Designation: [null, Validators.required],
@@ -69,8 +70,12 @@ export class AddEmployeeComponent implements OnInit {
   employeeType = json_data.EmployeeType;
   paymentOptions = json_data.PaymentOptions;
   errorMessage: any;
+  empId;
+  employee;
 
   constructor(
+    private router : Router,
+    private activatedRoute: ActivatedRoute,
     private titleService: TitleService,
     private fb: FormBuilder,
     private employeeService: EmployeeService,
@@ -83,28 +88,34 @@ export class AddEmployeeComponent implements OnInit {
     this.titleService
       .getTitle()
       .subscribe((appTitle) => (this.title = appTitle));
+      this.activatedRoute.params.subscribe((params) => {
+        this.empId = params.id;
+      });
+      this.employeeService.getEmployee(this.empId).subscribe(
+        (data) => {
+          this.AddEmployeeForm.patchValue(data);
+          console.log(this.AddEmployeeForm)
+        },
+        (err) => {}
+      );
   }
 
   save() {
-    console.log(this.AddEmployeeForm.value);
-
     this.employeeService.addEmployee(this.AddEmployeeForm.value).subscribe(
       (data) => {
-        console.log('line 93');
+        if (data.message) {
+          this._snackBar.open(data.message, 'OK', {
+            duration: 2000,
+          });
+        }
+        this.router.navigate(['/menuMaster/emplMaster/empDetails/'+this.empId]);
       },
-
       (err) => {
-        console.log(err.error);
         if (err.error == 'Fill all the required fields') {
           this._snackBar.open(err.error, 'ok', {
             duration: 2000,
           });
-        } else if (err.error._message == undefined) {
-          this._snackBar.open('Employee Successfully Added', 'OK', {
-            duration: 2000,
-          });
         } else {
-          console.log(err.error._message);
           this.errorMessage = err.error._message;
           this._snackBar.open(this.errorMessage, 'OK', {
             duration: 2000,

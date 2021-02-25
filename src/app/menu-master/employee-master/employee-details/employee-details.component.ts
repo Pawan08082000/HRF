@@ -1,25 +1,28 @@
-import { TokenStorageService } from './../../../services/token-storage.service';
 import { Component, OnInit } from '@angular/core';
-import {EmployeeService, } from '../../../services/employee.service'
+import { EmployeeService } from '../../../services/employee.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
-  styleUrls: ['./employee-details.component.scss']
+  styleUrls: ['./employee-details.component.scss'],
 })
 export class EmployeeDetailsComponent implements OnInit {
-
   employee;
-  constructor(private empService : EmployeeService, private tokenStorage: TokenStorageService) { }
+  empId;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private empService: EmployeeService
+  ) {}
 
   ngOnInit(): void {
-    const user = this.tokenStorage.getUser()
-    this.empService.getEmployee(user.id).subscribe(
-      (data) =>{
+    this.activatedRoute.params.subscribe((params) => {
+      this.empId = params.id;
+    });
+    this.empService.getEmployee(this.empId).subscribe(
+      (data) => {
         this.employee = data;
       },
-      (err)=>{
-      }
-    )
+      (err) => {}
+    );
   }
-
 }
