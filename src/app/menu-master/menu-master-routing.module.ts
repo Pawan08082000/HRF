@@ -13,6 +13,7 @@ const routes: Routes = [
         loadChildren: () =>
           import('./employee-master/employee-master.module').then((m) => m.EmployeeMasterModule),
         canActivate: [AuthGuard],
+        data: {title: 'Employee Master'}
 
       },
     ],
