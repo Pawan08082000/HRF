@@ -57,9 +57,13 @@ export class ShowEmployeesComponent implements OnInit {
   }
 
   editEmployee(object) {
-    this.router.navigateByUrl(`/menuMaster/emplMaster/empDetails/${object.Id}`)
+    this.router.navigateByUrl(`/menuMaster/emplMaster/addEmployee/${object.Id}`)
   }
 
+  EmployeeDetails(object){
+    this.router.navigateByUrl(`/menuMaster/emplMaster/empDetails/${object.Id}`)
+
+  }
   // applyFilter(event: Event) {
   //   const filterValue = (event.target as HTMLInputElement).value;
   //   this.dataSource.filter = filterValue.trim().toLowerCase();
