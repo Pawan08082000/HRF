@@ -23,12 +23,13 @@ const routes: Routes = [
         // canActivate: [LoggedInAuthGuard],
       },
       {
-        path: 'showEmployee/:q',
-        component: ShowEmployeesComponent
+        path: 'addEmployee/:id',
+        component: AddEmployeeComponent,
+        // canActivate: [LoggedInAuthGuard],
       },
       {
-        path: 'empDetails',
-        component: EmployeeDetailsComponent
+        path: 'showEmployee/:q',
+        component: ShowEmployeesComponent
       },
       {
         path: 'empDetails/:id',
