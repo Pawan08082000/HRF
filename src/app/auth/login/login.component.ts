@@ -4,6 +4,8 @@ import { TitleService } from '../../services/title.service';
 import { AuthService } from '../../services/auth.service';
 import { TokenStorageService } from '../../services/token-storage.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-login',
@@ -31,7 +33,9 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private titleService: TitleService,
-    private tokenStorage: TokenStorageService
+    private tokenStorage: TokenStorageService,
+    private _snackBar: MatSnackBar
+
   ) {}
 
   ngOnInit(): void {
@@ -56,12 +60,21 @@ export class LoginComponent implements OnInit {
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;
+
+          this._snackBar.open(data.message, 'OK', {
+            duration: 2000,
+          });
+          this.loginForm.reset();
           this.router.navigate(['/home']);
           // this.reloadPage();
         },
         (err) => {
           this.errorMessage = err.error.message;
           this.isLoginFailed = true;
+          this.loginForm.reset();
+          this._snackBar.open(this.errorMessage, 'OK', {
+            duration: 2000,
+          });
         }
       );
     }

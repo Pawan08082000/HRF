@@ -27,6 +27,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./menu-master/menu-master.module').then((m) => m.MenuMasterModule),
   },
+  {
+    //this is for lazy loading
+    path: 'selfPortal',
+    loadChildren: () =>
+      import('./self-portal/self-portal.module').then((m) => m.SelfPortalModule),
+  },
 ];
 
 @NgModule({

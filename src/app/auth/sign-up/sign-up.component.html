@@ -1,8 +1,10 @@
-<form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
+<form
+  [formGroup]="signupForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  *ngIf="!this.message"
+>
   <mat-card-content class="dashboard-card-content">
-    <mat-label class="col alert alert-success center" *ngIf="this.message">{{
-      this.message.message
-    }}</mat-label>
     <div class="row">
       <div class="col">
         <mat-form-field class="full-width">
@@ -64,18 +66,18 @@
             formControlName="confirmPassword"
             [type]="hide ? 'password' : 'text'"
           />
-          <mat-icon matSuffix (click)="hide = !hide">{{
-            hide ? "visibility" : "visibility_off"
+          <mat-icon matSuffix (click)="cnPassHide = !cnPassHide">{{
+            cnPassHide ? "visibility" : "visibility_off"
           }}</mat-icon>
           <mat-error
             *ngIf="signupForm.controls['confirmPassword'].hasError('required')"
           >
             <strong>required</strong>
           </mat-error>
-          <mat-error *ngIf="signupForm.hasError('notSame')">
-            Passwords do not match
-          </mat-error>
         </mat-form-field>
+        <mat-error *ngIf="signupForm.hasError('notSame')">
+          Passwords do not match
+        </mat-error>
       </div>
     </div>
     <div class="row">
@@ -103,3 +105,6 @@
     >Already have an account? <a routerLink="/auth/login">SignIn</a></strong
   >
 </form>
+<div class="col alert alert-success center" *ngIf="this.message">
+  {{ this.message.message }}
+</div>

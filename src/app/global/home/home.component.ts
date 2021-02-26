@@ -29,5 +29,7 @@ export class HomeComponent implements OnInit {
     if(role.title == "Menu Master"){
       this.route.navigateByUrl("/menuMaster/emplMaster/emplSearch")
     }
+    if(role.title == "Self Portal")
+      this.route.navigateByUrl("/selfPortal/leaveReq/form")
   }
 }
