@@ -16,16 +16,19 @@ const routes: Routes = [
         path: 'emplSearch',
         component: SearchEmployeeComponent,
         // canActivate: [LoggedInAuthGuard],
+        data: {title: 'Search Employee'}
       },
       {
         path: 'addEmployee',
         component: AddEmployeeComponent,
         // canActivate: [LoggedInAuthGuard],
+        data: {title: 'Add Employee'}
       },
       {
         path: 'addEmployee/:id',
         component: AddEmployeeComponent,
         // canActivate: [LoggedInAuthGuard],
+        data: {title: 'Edit Employee Details'}
       },
       {
         path: 'showEmployee/:q',
@@ -33,7 +36,8 @@ const routes: Routes = [
       },
       {
         path: 'empDetails/:id',
-        component: EmployeeDetailsComponent
+        component: EmployeeDetailsComponent,
+        data: {title: 'Employee Details'}
       },
     ],
   },

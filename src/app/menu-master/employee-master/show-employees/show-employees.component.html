@@ -17,13 +17,17 @@
     <mat-header-cell *matHeaderCellDef>
       {{ column | uppercase }}
     </mat-header-cell>
-    <mat-cell *matCellDef="let object" (click)="editEmployee()">
-      <a
+    <mat-cell *matCellDef="let object" (click)="EmployeeDetails(object)">
+      {{ object[column] | uppercase }}
+      <mat-icon *ngIf="column == 'Edit'" (click)="editEmployee(object)"
+        >edit</mat-icon
+      >
+      <!-- <a
         [routerLink]="'/menuMaster/emplMaster/empDetails/' + this.id"
         class="mat-row-link"
       >
-        {{ object[column] }}</a
-      >
+        {{ object[column] | uppercase }}</a
+      > -->
     </mat-cell>
   </ng-container>
 

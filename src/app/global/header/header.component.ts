@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   @Input() deviceXs;
 
-  constructor(public auth: AuthService, private router : Router) {}
+  constructor(public auth: AuthService, public router : Router) {}
 
   ngOnInit(): void {}
 
