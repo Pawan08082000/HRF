@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { TitleService } from '../../services/title.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,8 +20,11 @@ export class SignUpComponent implements OnInit {
     // postalCode: [null, Validators.compose([
     //   Validators.required, Validators.minLength(5), Validators.maxLength(5)])
     // ],
-  }, { validators: this.checkPasswords });
+  },     { validators: this.checkPasswords }
+  );
   hide = true;
+  cnPassHide:boolean = true;
+
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -34,7 +38,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -64,10 +69,15 @@ export class SignUpComponent implements OnInit {
           this.message = data;
           this.isSuccessful = true;
           this.isSignUpFailed = false;
+          this.signupForm.reset();
         },
         (err) => {
           this.errorMessage = err.error.message;
           this.isSignUpFailed = true;
+          this._snackBar.open(this.errorMessage, 'OK', {
+            duration: 2000,
+          });
+          this.signupForm.reset();
         }
       );
     }

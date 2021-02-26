@@ -72,6 +72,7 @@ export class AddEmployeeComponent implements OnInit {
   errorMessage: any;
   empId;
   employee;
+  urlLength;
 
   constructor(
     private router : Router,
@@ -85,9 +86,11 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.urlLength = window.location.href.split('/').length
     this.titleService
       .getTitle()
       .subscribe((appTitle) => (this.title = appTitle));
+    if (this.urlLength>6){
       this.activatedRoute.params.subscribe((params) => {
         this.empId = params.id;
       });
@@ -98,6 +101,7 @@ export class AddEmployeeComponent implements OnInit {
         },
         (err) => {}
       );
+    }
   }
 
   save() {

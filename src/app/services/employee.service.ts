@@ -15,7 +15,8 @@ export class EmployeeService {
   private addEmpl = "menuMaster/insert";
   private showEmpl = "menuMaster/show";
   private searchEmpl = "menuMaster/search";
- private getEmpl = "menuMaster/emp/"
+ private getEmpl = "menuMaster/emp/";
+ private getEmplName = "menuMaster/empName";
 
  httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -37,4 +38,7 @@ getEmployee(id:string):Observable<any>{
   return this.http.get(this.API+this.getEmpl+id, this.httpOptions)
 }
 
+getEmployeeName():Observable<any>{
+  return this.http.get(this.API + this.getEmplName, this.httpOptions);
+}
 }

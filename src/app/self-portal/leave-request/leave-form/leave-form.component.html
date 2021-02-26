@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-7 col-md-7">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Create Leave Request</mat-card-title>
+        </mat-card-header>
+        <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
+          <!-- <form [formGroup]="AddEmployeeForm"> -->
+
+          <mat-form-field class="full-width">
+            <mat-label>Select Employee:</mat-label>
+            <mat-select matNativeControl formControlName="SelectEmp">
+              <mat-option
+                *ngFor="let i of this.empName"
+                value="{{ i.EmployeeName }}"
+              >
+                {{ i.EmployeeName }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="leaveForm.controls['SelectEmp'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Leave Approver:</mat-label>
+            <mat-select matNativeControl formControlName="LeaveApprover">
+              <mat-option *ngFor="let i of departments" value="{{ i }}">
+                {{ i }}
+              </mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="leaveForm.controls['LeaveApprover'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Leave Type:</mat-label>
+            <mat-select matNativeControl formControlName="LeaveType">
+              <mat-option value="CL">Casual Leave</mat-option>
+              <mat-option value="SL">Sick Leave</mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="leaveForm.controls['LeaveType'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Available Balance</mat-label>
+            <input matInput formControlName="AvailableBalance" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Leave For:</mat-label>
+            <mat-select
+              matNativeControl
+              formControlName="LeaveFor"
+              [(ngModel)]="LeaveFor"
+            >
+              <mat-option value="Full Day">Full Day</mat-option>
+              <mat-option value="Half Day">Half Day</mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="leaveForm.controls['LeaveFor'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Start Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="StartDate"
+              (focus)="StartDate.open()"
+              formControlName="StartDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="StartDate"
+            ></mat-datepicker-toggle>
+            <mat-error
+              *ngIf="leaveForm.controls['StartDate'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-datepicker #StartDate></mat-datepicker>
+          <mat-form-field class="full-width">
+            <mat-label>End Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="EndDate"
+              (focus)="EndDate.open()"
+              formControlName="EndDate"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="EndDate"
+            ></mat-datepicker-toggle>
+            <mat-error
+              *ngIf="leaveForm.controls['EndDate'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-datepicker #EndDate></mat-datepicker>
+          <mat-form-field class="full-width" *ngIf="LeaveFor == 'Half Day'">
+            <mat-label>Start Time</mat-label>
+            <input type="time" matInput formControlName="StartTime" />
+            <mat-error
+              *ngIf="leaveForm.controls['StartTime'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width" *ngIf="LeaveFor == 'Half Day'">
+            <mat-label>End Time</mat-label>
+            <input type="time" matInput formControlName="EndTime" />
+            <mat-error
+              *ngIf="leaveForm.controls['EndTime'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Days</mat-label>
+            <input matInput formControlName="Days" />
+            <mat-error *ngIf="leaveForm.controls['Days'].hasError('required')">
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Reason For Leave</mat-label>
+            <textarea
+              matInput
+              type="textarea"
+              formControlName="ReasonForLeave"
+              placeholder="Reason For Leave"
+            ></textarea>
+            <mat-error
+              *ngIf="leaveForm.controls['ReasonForLeave'].hasError('required')"
+            >
+              <strong>*required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <mat-card-actions>
+          <button mat-raised-button color="primary" type="submit">
+            Submit
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-sm-5 col-md-5"></div>
+  </div>
+</div>
