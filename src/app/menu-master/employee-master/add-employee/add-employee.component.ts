@@ -23,7 +23,7 @@ export class AddEmployeeComponent implements OnInit {
     Company: [null, Validators.required],
     Department: [null, Validators.required],
     Designation: [null, Validators.required],
-    Email: [null, Validators.required],
+    Email: [null, Validators.compose([Validators.required, Validators.email])],
     JoiningDate: [null, Validators.required],
     ReportingTo: [null, Validators.required],
     DOB: [null, Validators.required],
@@ -54,8 +54,12 @@ export class AddEmployeeComponent implements OnInit {
 
     // Emergency Contact Information
     ContactName: [null, Validators.required],
-    ContactMobile: [null, Validators.required],
-    ContactEmail: [null, Validators.required],
+    ContactMobile: [null, Validators.compose(
+      [Validators.required]
+      )],
+    ContactEmail: [null, Validators.compose([
+      Validators.required, Validators.email
+    ])],
     ContactAddress: [null, Validators.required],
   });
   departments = json_data.Department;
@@ -105,6 +109,7 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   save() {
+    if(this.AddEmployeeForm.valid){
     this.employeeService.addEmployee(this.AddEmployeeForm.value).subscribe(
       (data) => {
         if (data.message) {
@@ -112,7 +117,11 @@ export class AddEmployeeComponent implements OnInit {
             duration: 2000,
           });
         }
+    if (this.urlLength>6){
+
         this.router.navigate(['/menuMaster/emplMaster/empDetails/'+this.empId]);
+    }
+    else this.router.navigateByUrl('/menuMaster/emplMaster/emplSearch')
       },
       (err) => {
         if (err.error == 'Fill all the required fields') {
@@ -127,6 +136,7 @@ export class AddEmployeeComponent implements OnInit {
         }
       }
     );
+    }
   }
 
   back() {
