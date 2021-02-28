@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { EventCalendarComponent } from './event-calendar/event-calendar.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { LeaveRequestRoutingModule } from './leave-request-routing.module';
@@ -15,10 +16,21 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { FullCalendarModule,  } from '@fullcalendar/angular'; // for FullCalendar
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
+import interactionPlugin from '@fullcalendar/interaction'
+import timegridPlugin from '@fullcalendar/timegrid'
+import listgridPlugin from '@fullcalendar/list'
 
 
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin,
+  timegridPlugin,
+  listgridPlugin
+]);
 @NgModule({
-  declarations: [LeaveFormComponent],
+  declarations: [EventCalendarComponent,LeaveFormComponent],
   imports: [
     CommonModule,
     LeaveRequestRoutingModule,
@@ -35,7 +47,9 @@ import { MatCardModule } from '@angular/material/card';
     MatDatepickerModule,
     MatNativeDateModule,
     MatTableModule,
-    MatCardModule
-  ]
+    MatCardModule,
+    FullCalendarModule
+  ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class LeaveRequestModule { }
