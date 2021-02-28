@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { MediaObserver, MediaChange } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
-import { Router }  from "@angular/router";
+import { NavigationEnd, Router }  from "@angular/router";
+import { filter } from 'rxjs/operators';
+import { UrlService } from './services/url.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +14,12 @@ export class AppComponent {
   title = 'HRF';
   mediaSub: Subscription;
   deviceXs: Boolean;
+  previousUrl: any;
+  currentUrl: any;
 
-  constructor(public mediaObserver: MediaObserver,public router: Router) {}
+  constructor(public mediaObserver: MediaObserver,public router: Router,
+    private urlService: UrlService
+    ) {}
 
   ngOnInit(){
     this.mediaSub = this.mediaObserver.media$.subscribe(
@@ -22,6 +28,15 @@ export class AppComponent {
         this.deviceXs = result.mqAlias === 'xs' ? true : false;
       }
     );
+
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd)
+  ).subscribe((event: NavigationEnd) => {
+     this.previousUrl = this.currentUrl;
+     this.currentUrl = event.url;
+     this.urlService.setPreviousUrl(this.previousUrl);
+
+  });
   }
 
   ngOnDestory(){

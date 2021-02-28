@@ -13,59 +13,100 @@
       <mat-form-field>
         <mat-label>Employee name</mat-label>
         <input matInput formControlName="EmployeeName" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['EmployeeName'].hasError('required')"
+            >
+              *EmployeeName is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput formControlName="Email" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Email'].hasError('required')"
+            >
+              *Email is <strong>required</strong>
+            </mat-error>
+            <mat-error
+              *ngIf="AddEmployeeForm.controls['Email'].hasError('email')"
+            >
+            Email format not proper
+          </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Company</mat-label>
         <!-- <input matInput> -->
-        <select matNativeControl formControlName="Company">
-          <option *ngFor="let i of companies" value="{{ i }}">
+        <mat-select matNativeControl formControlName="Company">
+          <mat-option *ngFor="let i of companies" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Company'].hasError('required')"
+            >
+              *Company is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Department</mat-label>
         <!-- <input matInput> -->
-        <select matNativeControl formControlName="Department">
-          <option *ngFor="let i of departments" value="{{ i }}">
+        <mat-select matNativeControl formControlName="Department">
+          <mat-option *ngFor="let i of departments" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Department'].hasError('required')"
+            >
+              *Department is <strong>required</strong>
+            </mat-error>
+            
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Designation</mat-label>
         <!-- <input matInput> -->
-        <select matNativeControl formControlName="Designation">
-          <option *ngFor="let i of designation" value="{{ i }}">
+        <mat-select matNativeControl formControlName="Designation">
+          <mat-option *ngFor="let i of designation" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Email'].hasError('required')"
+            >
+              *Email is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Reporting To</mat-label>
-        <select matNativeControl formControlName="ReportingTo">
-          <option *ngFor="let i of reportedTo" value="{{ i }}">
+        <mat-select matNativeControl formControlName="ReportingTo">
+          <mat-option *ngFor="let i of reportedTo" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['ReportingTo'].hasError('required')"
+            >
+              *ReportingTo Field is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Work Type</mat-label>
-        <select matNativeControl formControlName="WorkType">
-          <option *ngFor="let i of workTypes" value="{{ i }}">
+        <mat-select matNativeControl formControlName="WorkType">
+          <mat-option *ngFor="let i of workTypes" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['WorkType'].hasError('required')"
+            >
+              *WorkType is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -77,6 +118,11 @@
           formControlName="DOB"
         />
         <mat-icon>date_range</mat-icon>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['DOB'].hasError('required')"
+            >
+              *DOB is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
       <mat-datepicker #DOB></mat-datepicker>
 
@@ -89,6 +135,11 @@
           formControlName="JoiningDate"
         />
         <mat-icon>date_range</mat-icon>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['JoiningDate'].hasError('required')"
+            >
+              *JoiningDate is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
       <mat-datepicker #join></mat-datepicker>
 
@@ -104,72 +155,122 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Employment Type</mat-label>
-        <select matNativeControl formControlName="EmploymentType">
-          <option *ngFor="let i of employmentType" value="{{ i }}">
+        <mat-select matNativeControl formControlName="EmploymentType">
+          <mat-option *ngFor="let i of employmentType" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['EmploymentType'].hasError('required')"
+            >
+              *EmploymentType is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Office Branch</mat-label>
-        <select matNativeControl formControlName="OfficeBranch">
-          <option *ngFor="let i of officeBranch" value="{{ i }}">
+        <mat-select matNativeControl formControlName="OfficeBranch">
+          <mat-option *ngFor="let i of officeBranch" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['OfficeBranch'].hasError('required')"
+            >
+              *OfficeBranch is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Employee Grade</mat-label>
-        <select matNativeControl formControlName="EmployeeGrade">
-          <option *ngFor="let i of employeeGrade" value="{{ i }}">
+        <mat-select matNativeControl formControlName="EmployeeGrade">
+          <mat-option *ngFor="let i of employeeGrade" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['EmployeeGrade'].hasError('required')"
+            >
+              *EmployeeGrade is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Employee Group</mat-label>
-        <select matNativeControl formControlName="EmployeeGroup">
-          <option *ngFor="let i of employeeGroup" value="{{ i }}">
+        <mat-select matNativeControl formControlName="EmployeeGroup">
+          <mat-option *ngFor="let i of employeeGroup" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['EmployeeGroup'].hasError('required')"
+            >
+              *EmployeeGroup is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Employee Type</mat-label>
-        <select matNativeControl formControlName="EmployeeType">
-          <option *ngFor="let i of employeeType" value="{{ i }}">
+        <mat-select matNativeControl formControlName="EmployeeType">
+          <mat-option *ngFor="let i of employeeType" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['EmployeeType'].hasError('required')"
+            >
+              *EmployeeType is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Value</mat-label>
         <input matInput formControlName="Value" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Value'].hasError('required')"
+            >
+              *Value is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>PF Account No.</mat-label>
         <input matInput formControlName="PF" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['PF'].hasError('required')"
+            >
+              *PF is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>ESI No.</mat-label>
         <input matInput formControlName="ESI" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['ESI'].hasError('required')"
+            >
+              *ESI is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>CIN No.</mat-label>
         <input matInput formControlName="CIN" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['CIN'].hasError('required')"
+            >
+              *CIN No. is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Address</mat-label>
         <input matInput formControlName="Address" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Address'].hasError('required')"
+            >
+              *Address is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
 
       <mat-form-field>
@@ -181,6 +282,11 @@
           formControlName="EffectiveDate"
         />
         <mat-icon>date_range</mat-icon>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['EffectiveDate'].hasError('required')"
+            >
+              *Effective Date is <strong>required</strong>
+            </mat-error>
       </mat-form-field>
       <mat-datepicker #Effective></mat-datepicker>
 
@@ -193,6 +299,12 @@
           formControlName="LeavingDate"
         />
         <mat-icon>date_range</mat-icon>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['LeavingDate'].hasError('required')"
+            >
+              *Leaving Date is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
       <mat-datepicker #Leaving></mat-datepicker>
 
@@ -203,6 +315,12 @@
           placeholder="Ex. It makes me feel..."
           formControlName="Description"
         ></textarea>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['Description'].hasError('required')"
+            >
+              *Description is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>
@@ -221,35 +339,71 @@
       <mat-form-field>
         <mat-label>Bank Account No.</mat-label>
         <input matInput formControlName="BankAccount" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['BankAccount'].hasError('required')"
+            >
+              *Bank Account is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Bank Name</mat-label>
         <input matInput formControlName="BankName" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['BankName'].hasError('required')"
+            >
+              *Bank Name is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Bank Branch</mat-label>
         <input matInput formControlName="BankBranch" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['BankBranch'].hasError('required')"
+            >
+              *Bank Branch is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>PAN</mat-label>
         <input matInput formControlName="PAN" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['PAN'].hasError('required')"
+            >
+              *PAN is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>IFSC Code</mat-label>
         <input matInput formControlName="IFSC" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['IFSC'].hasError('required')"
+            >
+              *IFSC Code is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Payment Type</mat-label>
-        <select matNativeControl formControlName="PaymentType">
-          <option *ngFor="let i of paymentOptions" value="{{ i }}">
+        <mat-select matNativeControl formControlName="PaymentType">
+          <mat-option *ngFor="let i of paymentOptions" value="{{ i }}">
             {{ i }}
-          </option>
-        </select>
+          </mat-option>
+        </mat-select>
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['PaymentType'].hasError('required')"
+            >
+              *Payment Type is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>
@@ -266,21 +420,56 @@
       <mat-form-field>
         <mat-label>Emergency Contact Name</mat-label>
         <input matInput formControlName="ContactName" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['ContactName'].hasError('required')"
+            >
+              *Emergency Contact Name is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Emergency Contact Mobile</mat-label>
         <input matInput formControlName="ContactMobile" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['ContactMobile'].hasError('required')"
+            >
+              *Emergency Contact Mobile is <strong>required</strong>
+            </mat-error>
+            <!-- <mat-error
+            *ngIf="AddEmployeeForm.controls['ContactMobile'].hasError('minLength(10)') ||
+            AddEmployeeForm.controls['ContactMobile'].hasError('maxLength(10)')"
+          >
+            Mobile No. should be of 10 digits
+        </mat-error> -->
+    
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Emergency Contact Email</mat-label>
         <input matInput formControlName="ContactEmail" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['ContactEmail'].hasError('required')"
+            >
+              *Emergency Contact Email is <strong>required</strong>
+            </mat-error>
+            <mat-error
+            *ngIf="AddEmployeeForm.controls['ContactEmail'].hasError('email')"
+          >
+            Email format not proper
+        </mat-error>
+    
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Emergency Contact Address</mat-label>
         <input matInput formControlName="ContactAddress" />
+        <mat-error
+              *ngIf="AddEmployeeForm.controls['ContactAddress'].hasError('required')"
+            >
+            *Emergency Contact Address is <strong>required</strong>
+            </mat-error>
+      
       </mat-form-field>
       <div>
         <button mat-button mat-raised-button color="primary" matStepperPrevious>
