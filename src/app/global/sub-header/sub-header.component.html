@@ -1,5 +1,5 @@
 <mat-toolbar-row class="page-header justify-content-between">
-    <h1 class="p-3">{{showRoute[showRoute.length-1]}}</h1>
+    <h1 class="p-3">{{showCurrentName[showCurrentName.length-1] | titlecase}}</h1>
     <div class="row align-items-center">
       <div class="col col-md-8">
         <div class="col col-md-4">
@@ -8,9 +8,17 @@
               <a routerLink="/home"><span class="material-icons">home </span></a>
             </li></mat-list-item
           >
+
+          <mat-list-item>
+            <li style="display: inline;" *ngIf = "previousUrl != null ||
+            previousUrl != undefined">
+              <a routerLink="{{previousUrl}}"><h3>&gt; {{showPreviousName[showPreviousName.length - 1]}}</h3></a>
+            </li></mat-list-item
+          >
+
           <mat-list-item >
             <li style="display: inline;">
-              <a routerLink="{{routeLink}}" ><h3>&gt; {{showRoute[showRoute.length - 1]}}</h3></a>
+              <a routerLink="{{CurrentRouteLink}}" ><h3>&gt; {{showCurrentName[showCurrentName.length - 1]}}</h3></a>
             </li></mat-list-item
           >
         </div>

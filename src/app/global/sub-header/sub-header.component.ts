@@ -1,40 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { UrlService } from 'src/app/services/url.service';
 
 @Component({
   selector: 'app-sub-header',
   templateUrl: './sub-header.component.html',
-  styleUrls: ['./sub-header.component.scss']
+  styleUrls: ['./sub-header.component.scss'],
 })
 export class SubHeaderComponent implements OnInit {
-  [x: string]: any;
-  showRoute: any
-  routeLink: any
-  constructor(
-    private router: Router
-  ) { }
+  previousUrl: string = '';
+  CurrentRouteLink: any;
+
+  showPreviousName: any;
+  showCurrentName: any;
+  constructor(private router: Router, private urlService: UrlService) {}
 
   ngOnInit(): void {
-    this.routeLink = this.router.url
-    this.showRoute = this.router.url.split('/') 
-    // this.showRoute = this.titleService.getTitle();
-    // this.router
-    //   .events.pipe(
-    //     filter(event => event instanceof NavigationEnd),
-    //     map(() => {
-    //       let child = this.activatedRoute.firstChild;
-    //       while (child.firstChild) {
-    //         child = child.firstChild;
-    //       }
-    //       if (child.snapshot.data['title']) {
-    //         return child.snapshot.data['title'];
-    //       }
-    //       return this.showRoute;
-    //     })
-    //   ).subscribe((ttl: string) => {
-    //     this.titleService.setTitle(ttl);
-    //   });
-  }
+    // Or subscribe to the previous url observable here
+    this.urlService.previousUrl$.subscribe((previousUrl: string) => {
+      this.previousUrl = previousUrl;
+      if (previousUrl != null || previousUrl != undefined) {
+        this.showPreviousName = previousUrl.split('/');
+      }
+      this.CurrentRouteLink = this.router.url;
 
+      this.showCurrentName = this.CurrentRouteLink.split('/');
+    });
+  }
 }
