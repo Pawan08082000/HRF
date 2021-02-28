@@ -1,0 +1,7 @@
+<button mat-button (click)="day()">dayGridWeek</button>
+<mat-card
+  ><full-calendar
+    [options]="calendarOptions"
+    (dateClick)="eventClick($event)"
+  ></full-calendar
+></mat-card>
