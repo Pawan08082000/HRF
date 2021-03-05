@@ -11,8 +11,11 @@
 
           <mat-list-item>
             <li style="display: inline;" *ngIf = "previousUrl != null ||
-            previousUrl != undefined">
-              <a routerLink="{{previousUrl}}"><h3>&gt; {{showPreviousName[showPreviousName.length - 1]}}</h3></a>
+            previousUrl != undefined
+           ">
+              <a routerLink="{{previousUrl}}" *ngIf = "
+              showPreviousName[showPreviousName.length-1] !== 'home'">
+              <h3>&gt; {{showPreviousName[showPreviousName.length - 1]}}</h3></a>
             </li></mat-list-item
           >
 
