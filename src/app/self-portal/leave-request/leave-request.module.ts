@@ -16,7 +16,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { FullCalendarModule,  } from '@fullcalendar/angular'; // for FullCalendar
+import { CalendarApi, FullCalendarComponent, FullCalendarModule,  } from '@fullcalendar/angular'; // for FullCalendar
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'
 import timegridPlugin from '@fullcalendar/timegrid'
@@ -51,5 +51,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  providers: [CalendarApi, FullCalendarComponent]
 })
 export class LeaveRequestModule { }
