@@ -83,6 +83,12 @@ export class EventCalendarComponent implements OnInit {
   handleEventClick(clickInfo: EventClickArg) {
     if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
       clickInfo.event.remove();
+      console.log(clickInfo.event.title)
+      this.calendarService.deleteEvent(clickInfo.event.title).subscribe(
+        data => {
+          console.log("event removed")
+        }
+      )
     }
   }
   
