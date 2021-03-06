@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { CalendarOptions, DateSelectArg, EventApi, EventClickArg, FullCalendarComponent } from '@fullcalendar/angular'; // useful for typechecking
+import { CalendarService } from 'src/app/services/calendar.service';
 
 
 @Component({
@@ -12,11 +13,15 @@ export class EventCalendarComponent implements OnInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
 
   constructor(
-    
+    private calendarService: CalendarService
   ){}
 
   ngOnInit(){
-    
+  //   this.http.get('http://localhost/mypage.php').subscribe(data => {
+  //      this.posts.push(data);
+  //      console.log(this.posts);
+  // });
+
   }
 
   calendarOptions: CalendarOptions = {
@@ -42,13 +47,19 @@ export class EventCalendarComponent implements OnInit {
     calendarApi.unselect(); // clear date selection
 
     if (title) {
-      calendarApi.addEvent({
+      let eventInfo =  {
         // id: createEventId(),
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
         allDay: selectInfo.allDay
-      });
+      }
+      calendarApi.addEvent(eventInfo);
+      
+
+      this.calendarService.addEvents(eventInfo).subscribe(data => {
+        console.log("inserted")
+      })
     }
   }
 
