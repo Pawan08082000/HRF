@@ -14,6 +14,7 @@ export class CalendarService {
 
   private API = 'http://127.0.0.1:9000/api/';
   private addEvent = "eventCalendar/postEvent";
+  private showEvent = "eventCalendar/showEvents"
 
   
  httpOptions = {
@@ -22,5 +23,8 @@ export class CalendarService {
 
   addEvents(events): Observable<any> {
     return this.http.post(this.API + this.addEvent, events, this.httpOptions);
+  }
+  showEvents(){
+    return this.http.get(this.API + this.showEvent, this.httpOptions)
   }
 }

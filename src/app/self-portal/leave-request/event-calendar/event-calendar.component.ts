@@ -13,32 +13,42 @@ export class EventCalendarComponent implements OnInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
 
   constructor(
-    private calendarService: CalendarService
-  ){}
+    private calendarService: CalendarService,
+  ){
+    
+  }
+  calendarOptions: CalendarOptions
+
+  posts: any
 
   ngOnInit(){
-  //   this.http.get('http://localhost/mypage.php').subscribe(data => {
-  //      this.posts.push(data);
-  //      console.log(this.posts);
-  // });
+    
+    this.calendarService.showEvents().subscribe(data => {
+      this.posts = data;
+      console.log(this.posts);
+      console.log(data);
 
+ });
+ setTimeout(() => {
+ this.calendarOptions = {
+  initialView: 'dayGridWeek',
+  editable: true,  
+  headerToolbar: {
+    left: 'prev,next today',
+  center: 'title',
+  right: 'dayGridMonth,timeGridWeek,timeGridDay'
+  },
+  dayMaxEvents: true,
+  select: this.handleDateSelect.bind(this),
+  selectable: true,
+  eventClick: this.handleEventClick.bind(this),
+  eventsSet: this.handleEvents.bind(this),
+  events: this.posts,
+};
+ }, 3000);
   }
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridWeek',
-    editable: true,  
-    headerToolbar: {
-      left: 'prev,next today',
-    center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    dayMaxEvents: true,
-    select: this.handleDateSelect.bind(this),
-    selectable: true,
-    eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this),
-    // events: []
-  };
+ 
 
   handleDateSelect(selectInfo: DateSelectArg) {
     const title = prompt('Please enter a new title for your event');
