@@ -122,6 +122,7 @@ export class AddEmployeeComponent implements OnInit {
         this.router.navigate(['/menuMaster/emplMaster/empDetails/'+this.empId]);
     }
     else this.router.navigateByUrl('/menuMaster/emplMaster/emplSearch')
+    this.AddEmployeeForm.reset()
       },
       (err) => {
         if (err.error == 'Fill all the required fields') {
