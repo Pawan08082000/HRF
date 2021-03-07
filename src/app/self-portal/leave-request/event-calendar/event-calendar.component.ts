@@ -33,6 +33,13 @@ export class EventCalendarComponent implements OnInit {
  this.calendarOptions = {
   initialView: 'dayGridWeek',
   editable: true,  
+  businessHours: {
+    // days of week. an array of zero-based day of week integers (0=Sunday)
+    dow: [ 1, 2, 3, 4, 5 ],
+
+    start: '00:00',
+    end: '23:59',
+},
   headerToolbar: {
     left: 'prev,next today',
   center: 'title',
