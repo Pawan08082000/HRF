@@ -54,6 +54,7 @@ export class AddJobVacancyComponent implements OnInit {
 
 
           }
+          this.AddJobVacancyForm.reset()
         })}
   }
 }
