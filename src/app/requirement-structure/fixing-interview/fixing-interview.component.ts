@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { RequirementStructureService } from 'src/app/services/requirement-structure.service';
 import { TitleService } from 'src/app/services/title.service';
 import * as json_data from './fix-interview.json';
 
@@ -31,7 +33,10 @@ export class FixingInterviewComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private requirementService: RequirementStructureService,
+    private _snackBar: MatSnackBar
+
   ) { 
     this.titleService.setTitle('Add Job Vacancy');
 
@@ -44,6 +49,17 @@ export class FixingInterviewComponent implements OnInit {
 
   }
 onSubmit(){
-  console.log('submitted')
+  if(this.FixInterviewForm.valid){
+  this.requirementService.fixInterview(this.FixInterviewForm.value).subscribe(data => {
+    if (data.message) {
+      this._snackBar.open(data.message, 'OK', {
+        duration: 2000,
+      });
+
+
+    }
+    this.FixInterviewForm.reset()
+  })
+  }
 }
 }
