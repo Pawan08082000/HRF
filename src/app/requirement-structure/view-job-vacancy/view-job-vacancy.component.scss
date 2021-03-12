@@ -1,0 +1,21 @@
+mat-card {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 20px;
+  }
+
+  mat-card-content {
+    flex: 1 1 auto;
+    overflow: auto;
+    text-align: center;
+  }
+
+  mat-card-title{
+      text-align: center;
+  }
+
+  button{
+      margin-left: 40px;
+  }

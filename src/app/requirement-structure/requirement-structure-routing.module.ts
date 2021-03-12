@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { AddJobVacancyComponent } from './add-job-vacancy/add-job-vacancy.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
         canActivate: [AuthGuard],
 
       },
+      {
+        path: "viewJobVacancies",
+        component: ViewJobVacancyComponent,
+      }
     ]
   }
 ]

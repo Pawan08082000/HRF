@@ -18,8 +18,14 @@ export class RequirementStructureService {
   
   private API = 'http://127.0.0.1:9000/api/';
   private addJobVacancy = "requirementStructure/addJobVacancy"
+  private getJobVacancy = "requirementStructure/getJobVacancy"
+  
   
 addJobVacancies(job_details): Observable<any> {
   return this.http.post(this.API + this.addJobVacancy, job_details, this.httpOptions);
+}
+
+getJobVacancies() {
+  return this.http.get(this.API + this.getJobVacancy, this.httpOptions)
 }
 }

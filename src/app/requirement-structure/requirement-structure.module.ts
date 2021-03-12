@@ -9,11 +9,13 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
 @NgModule({
-  declarations: [AddJobVacancyComponent],
+  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent],
   imports: [
     CommonModule,
     RequirementStructureRoutingModule,
@@ -24,7 +26,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatRadioModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatFormFieldModule 
+    MatFormFieldModule,
+    MatIconModule,
+
   ]
 })
 export class RequirementStructureModule { }

@@ -32,6 +32,6 @@ export class HomeComponent implements OnInit {
     if(role.title == "Self Portal")
       this.route.navigateByUrl("/selfPortal/leaveReq/form")
     if(role.title == "Requirment Structure")
-      this.route.navigateByUrl("/requirementStructure/addJobVacancy")
+      this.route.navigateByUrl("/requirementStructure/viewJobVacancies")
   }
 }
