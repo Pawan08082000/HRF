@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddJobVacancyComponent } from './add-job-vacancy/add-job-vacancy.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.component';
+import { FixingInterviewComponent } from './fixing-interview/fixing-interview.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
       {
         path: "viewJobVacancies",
         component: ViewJobVacancyComponent,
+      },
+      {
+        path: "fixInterview",
+        component: FixingInterviewComponent,
+        canActivate: [AuthGuard]
       }
     ]
   }

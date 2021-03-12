@@ -37,4 +37,8 @@ export class ViewJobVacancyComponent implements OnInit {
     this.route.navigateByUrl("/requirementStructure/addJobVacancy")
 
   }
+
+  FixInterview(){
+    this.route.navigateByUrl("/requirementStructure/fixInterview")
+  }
 }

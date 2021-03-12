@@ -11,11 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FixingInterviewComponent } from './fixing-interview/fixing-interview.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 
 @NgModule({
-  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent],
+  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent, FixingInterviewComponent],
   imports: [
     CommonModule,
     RequirementStructureRoutingModule,
@@ -28,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatIconModule,
+    MatDatepickerModule,
 
   ]
 })
