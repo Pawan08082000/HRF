@@ -13,11 +13,15 @@ import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.com
 import { MatIconModule } from '@angular/material/icon';
 import { FixingInterviewComponent } from './fixing-interview/fixing-interview.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+
+import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 
 
 
 @NgModule({
-  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent, FixingInterviewComponent],
+  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent, FixingInterviewComponent, ViewInterviewsComponent],
   imports: [
     CommonModule,
     RequirementStructureRoutingModule,
@@ -31,6 +35,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     MatIconModule,
     MatDatepickerModule,
+    MatDividerModule,
+    MatListModule
 
   ]
 })

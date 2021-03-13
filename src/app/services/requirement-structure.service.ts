@@ -20,7 +20,7 @@ export class RequirementStructureService {
   private addJobVacancy = "requirementStructure/addJobVacancy"
   private getJobVacancy = "requirementStructure/getJobVacancy"
   private fixInterviews = "requirementStructure/fixInterview"
-  
+  private interview = "requirementStructure/getInterviews"
   
 addJobVacancies(job_details): Observable<any> {
   return this.http.post(this.API + this.addJobVacancy, job_details, this.httpOptions);
@@ -32,5 +32,8 @@ getJobVacancies() {
 
 fixInterview(details): Observable<any> {
   return this.http.post(this.API + this.fixInterviews, details, this.httpOptions);
+}
+getSchedules(){
+  return this.http.get(this.API + this.interview, this.httpOptions)
 }
 }

@@ -5,6 +5,7 @@ import { AddJobVacancyComponent } from './add-job-vacancy/add-job-vacancy.compon
 import { AuthGuard } from '../auth/auth.guard';
 import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.component';
 import { FixingInterviewComponent } from './fixing-interview/fixing-interview.component';
+import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,11 @@ const routes: Routes = [
       {
         path: "fixInterview",
         component: FixingInterviewComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: "interviews",
+        component: ViewInterviewsComponent,
         canActivate: [AuthGuard]
       }
     ]

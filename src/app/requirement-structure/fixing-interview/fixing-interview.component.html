@@ -1,10 +1,10 @@
-<p>fixing-interview works!</p>
 
 <form [formGroup]="FixInterviewForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="container col-sm-6 mt-2 mb-2">
       <div class="justify-content-between d-flex">
         <mat-card-title>{{ title }}
-          <button mat-raised-button color="accent">View Scheduled Interviews</button>
+          <button mat-raised-button color="accent"
+          (click) = "viewInterviews()">View Scheduled Interviews</button>
         </mat-card-title>
       </div>
       <hr />
