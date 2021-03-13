@@ -15,7 +15,7 @@ export class FixingInterviewComponent implements OnInit {
   
   FixInterviewForm = this.fb.group({
     Vacancy: [null, Validators.required],
-    Candidate: [null, Validators.required],
+    Candidate: [null, Validators.compose([Validators.required, Validators.email])],
     InterviewTime: [null, Validators.required],
     Date: [null, Validators.required],
     Method: [null, Validators.required],

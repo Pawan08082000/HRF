@@ -22,17 +22,22 @@
         </mat-form-field>
   
         <mat-form-field>
-          <mat-label>Candidate Name</mat-label>
+          <mat-label>Candidate's Email</mat-label>
   
           <input
             matInput
-            placeholder="Candidate Name"
+            placeholder="Candidate's Email"
             formControlName="Candidate"
           />
           <mat-error
             *ngIf="FixInterviewForm.controls['Candidate'].hasError('required')"
           >
           Candidate is <strong>required</strong>
+          </mat-error>
+          <mat-error
+            *ngIf="FixInterviewForm.controls['Candidate'].hasError('email')"
+          >
+          Email format is <strong>incorrect</strong>
           </mat-error>
         </mat-form-field>
   
