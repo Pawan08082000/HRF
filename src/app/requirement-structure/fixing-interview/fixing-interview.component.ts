@@ -38,7 +38,7 @@ export class FixingInterviewComponent implements OnInit {
     private _snackBar: MatSnackBar
 
   ) { 
-    this.titleService.setTitle('Add Job Vacancy');
+    this.titleService.setTitle('Schedule an Interview');
 
   }
 

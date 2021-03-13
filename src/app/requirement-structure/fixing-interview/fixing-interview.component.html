@@ -3,7 +3,9 @@
 <form [formGroup]="FixInterviewForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="container col-sm-6 mt-2 mb-2">
       <div class="justify-content-between d-flex">
-        <mat-card-title>{{ title }}</mat-card-title>
+        <mat-card-title>{{ title }}
+          <button mat-raised-button color="accent">View Scheduled Interviews</button>
+        </mat-card-title>
       </div>
       <hr />
       <mat-card-content>
