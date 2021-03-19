@@ -1,0 +1,14 @@
+<br><br>
+<mat-list
+*ngFor = " let i of data">
+    <mat-list-item>{{i.Vacancy}}</mat-list-item>
+
+      Candidate Email: {{i.Candidate}}<br>
+      <b>{{i.Comments}}</b><br>Interview Date: {{i.Date}}<br>
+      <b>Interview Time: {{i.InterviewTime}}</b><br>Mode Of Interview:{{i.Method}}<br>
+      Status of Application: {{i.Status}}
+    
+ 
+    <mat-divider></mat-divider>
+   
+  </mat-list>

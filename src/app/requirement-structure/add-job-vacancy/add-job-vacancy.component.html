@@ -1,0 +1,118 @@
+<form [formGroup]="AddJobVacancyForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="container col-sm-6 mt-2 mb-2">
+    <div class="justify-content-between d-flex">
+      <mat-card-title>{{ title }}</mat-card-title>
+    </div>
+    <hr />
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Job Title</mat-label>
+        <mat-select matNativeControl formControlName="JobTitle">
+          <mat-option *ngFor="let i of jobTitle" value="{{ i }}">
+            {{ i }}
+          </mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="AddJobVacancyForm.controls['JobTitle'].hasError('required')"
+        >
+          JobTitle is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Vacancy Name</mat-label>
+
+        <input
+          matInput
+          placeholder="Vacancy Name"
+          formControlName="VacancyName"
+        />
+        <mat-error
+          *ngIf="AddJobVacancyForm.controls['VacancyName'].hasError('required')"
+        >
+          VacancyName is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Hiring Manager</mat-label>
+
+        <input
+          matInput
+          placeholder="Hiring Manager"
+          formControlName="HiringManager"
+        />
+
+        <mat-error
+          *ngIf="
+            AddJobVacancyForm.controls['HiringManager'].hasError('required')
+          "
+        >
+          HiringManager is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>No. Of Positions</mat-label>
+
+        <input
+          matInput
+          placeholder="No. of  Positions"
+          formControlName="NoOfPositions"
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Job Location</mat-label>
+
+        <input
+          matInput
+          placeholder="Job Location"
+          formControlName="JobLocation"
+        />
+        <mat-error
+          *ngIf="AddJobVacancyForm.controls['JobLocation'].hasError('required')"
+        >
+          Job Location is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Job Description</mat-label>
+        <textarea
+          matInput
+          placeholder="Job Description"
+          formControlName="JobDescription"
+        ></textarea>
+        <mat-error
+          *ngIf="
+            AddJobVacancyForm.controls['JobDescription'].hasError('required')
+          "
+        >
+          Job Description is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <br />
+      <!-- <mat-form-field > -->
+      <mat-label>Active</mat-label>
+
+      <mat-radio-group aria-label="Select an option" formControlName="Active">
+        <mat-radio-button value="1">yes</mat-radio-button>
+        <mat-radio-button value="0">no</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-error
+        *ngIf="AddJobVacancyForm.controls['Active'].hasError('required')"
+      >
+        Active status is <strong>required</strong>
+      </mat-error>
+      <br />
+      <!-- </mat-form-field> -->
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </mat-card-actions>
+  </mat-card>
+  <br />
+  <br />
+</form>

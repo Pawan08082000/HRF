@@ -33,6 +33,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./self-portal/self-portal.module').then((m) => m.SelfPortalModule),
   },
+  {
+    //this is for lazy loading
+    path: 'requirementStructure',
+    loadChildren: () =>
+      import('./requirement-structure/requirement-structure.module').then(
+        (m) => m.RequirementStructureModule),
+  },
 ];
 
 @NgModule({

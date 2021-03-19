@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { CalendarOptions, DateSelectArg, EventApi, EventClickArg, FullCalendarComponent } from '@fullcalendar/angular'; // useful for typechecking
+import { CalendarService } from 'src/app/services/calendar.service';
 
 
 @Component({
@@ -12,28 +13,49 @@ export class EventCalendarComponent implements OnInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
 
   constructor(
+    private calendarService: CalendarService,
+  ){
     
-  ){}
+  }
+  calendarOptions: CalendarOptions
+
+  posts: any
 
   ngOnInit(){
     
+    this.calendarService.showEvents().subscribe(data => {
+      this.posts = data;
+      console.log(this.posts);
+      console.log(data);
+
+ });
+ setTimeout(() => {
+ this.calendarOptions = {
+  initialView: 'dayGridWeek',
+  editable: true,  
+  businessHours: {
+    // days of week. an array of zero-based day of week integers (0=Sunday)
+    dow: [ 1, 2, 3, 4, 5 ],
+
+    start: '00:00',
+    end: '23:59',
+},
+  headerToolbar: {
+    left: 'prev,next today',
+  center: 'title',
+  right: 'dayGridMonth,timeGridWeek,timeGridDay'
+  },
+  dayMaxEvents: true,
+  select: this.handleDateSelect.bind(this),
+  selectable: true,
+  eventClick: this.handleEventClick.bind(this),
+  eventsSet: this.handleEvents.bind(this),
+  events: this.posts,
+};
+ }, 3000);
   }
 
-  calendarOptions: CalendarOptions = {
-    initialView: 'dayGridWeek',
-    editable: true,  
-    headerToolbar: {
-      left: 'prev,next today',
-    center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-    },
-    dayMaxEvents: true,
-    select: this.handleDateSelect.bind(this),
-    selectable: true,
-    eventClick: this.handleEventClick.bind(this),
-    eventsSet: this.handleEvents.bind(this),
-    // events: []
-  };
+ 
 
   handleDateSelect(selectInfo: DateSelectArg) {
     const title = prompt('Please enter a new title for your event');
@@ -42,13 +64,19 @@ export class EventCalendarComponent implements OnInit {
     calendarApi.unselect(); // clear date selection
 
     if (title) {
-      calendarApi.addEvent({
+      let eventInfo =  {
         // id: createEventId(),
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
         allDay: selectInfo.allDay
-      });
+      }
+      calendarApi.addEvent(eventInfo);
+      
+
+      this.calendarService.addEvents(eventInfo).subscribe(data => {
+        console.log("inserted")
+      })
     }
   }
 
@@ -62,6 +90,12 @@ export class EventCalendarComponent implements OnInit {
   handleEventClick(clickInfo: EventClickArg) {
     if (confirm(`Are you sure you want to delete the event '${clickInfo.event.title}'`)) {
       clickInfo.event.remove();
+      console.log(clickInfo.event.title)
+      this.calendarService.deleteEvent(clickInfo.event.title).subscribe(
+        data => {
+          console.log("event removed")
+        }
+      )
     }
   }
   

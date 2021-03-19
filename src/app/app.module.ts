@@ -14,6 +14,7 @@ import { GlobalModule } from './global/global.module';
 
 import {MenuMasterModule} from './menu-master/menu-master.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RequirementStructureModule } from './requirement-structure/requirement-structure.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,7 +27,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     AuthModule,
     HttpClientModule,
     MenuMasterModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    RequirementStructureModule
   ],
   providers: [
     {

@@ -51,6 +51,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FullCalendarModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
-  providers: [CalendarApi, FullCalendarComponent]
+  providers: [ FullCalendarComponent]
 })
 export class LeaveRequestModule { }

@@ -1,0 +1,28 @@
+{
+  "Vacancy": [
+    "Cloud Computing Engineer",
+    "Computer Network Specialist",
+    "Computer Support Specialist",
+    "Database Administrator",
+    "Information Technology Analyst",
+    "Information Technology Leadership",
+    "Information Security Specialist",
+    "Software/Application Developer",
+    "Web Developer"
+  ],
+
+  "Method": [
+    "In-person interview",
+    "Phone interview",
+    "Capability test interview",
+    "Lunch or drinks interview",
+    "Panel interview",
+    "Video"
+  ],
+
+  "Status": [
+      "Applied", "Not Shortlisted", "Called For Interview", "Confirmed",
+      "Interview Decline (1/2)", "No Show (1/2)", "Offered", "Not Selected",
+      "Joined"
+  ]
+}

@@ -1,0 +1,46 @@
+<br><br>
+<button color="primary" (click)="AddJobVacancy()">
+    <mat-icon>add</mat-icon><p style="display: inline;">Add a new job vacancy</p>
+</button>
+
+<button color="primary" (click)="FixInterview()">
+  <mat-icon>add</mat-icon><p style="display: inline;">Fixing an interview </p>
+</button>
+
+<div class="container">
+    <div >
+      <div >
+        <mat-card
+        *ngFor = "let i of Data"
+        >
+          <mat-card-title 
+            >{{i.JobTitle}}
+           
+          </mat-card-title>
+  
+          <mat-card-content 
+          >
+            <mat-card-content
+              >{{i.VacancyName}}<br>
+              <b>Job Location:{{
+                i.JobLocation
+              }}</b></mat-card-content
+            >
+            <mat-card-content
+            *ngIf = "i.NoOfPosition"
+              >No. Of Positions: {{i.NoOfPosition}}<br>
+              <b>{{
+                i.JobDescription
+              }}</b></mat-card-content
+            >
+            <mat-card-content
+              >Hiring Manager: {{i.HiringManager}}
+            >
+          </mat-card-content>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+    </div>
+   
+  </div>
