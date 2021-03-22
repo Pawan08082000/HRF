@@ -12,10 +12,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthModule } from './auth/auth.module';
 import { GlobalModule } from './global/global.module';
 
-import {MenuMasterModule} from './menu-master/menu-master.module';
+import { MenuMasterModule } from './menu-master/menu-master.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RequirementStructureModule } from './requirement-structure/requirement-structure.module';
-
+import { TrainingModule } from './training/training.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -28,7 +28,8 @@ import { RequirementStructureModule } from './requirement-structure/requirement-
     HttpClientModule,
     MenuMasterModule,
     MatSnackBarModule,
-    RequirementStructureModule
+    RequirementStructureModule,
+    TrainingModule,
   ],
   providers: [
     {

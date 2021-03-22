@@ -1,0 +1,66 @@
+
+<form [formGroup]="TrainingFeedbackForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card class="container col-sm-6 mt-2 mb-2">
+      <div class="justify-content-between d-flex">
+        <mat-card-title>{{ title }}</mat-card-title>
+      </div>
+      <hr />
+      <mat-card-content>
+        <mat-form-field>
+          <mat-label>Job Title</mat-label>
+          <mat-select matNativeControl formControlName="TrainingName">
+            <mat-option *ngFor="let i of TrainingName" value="{{ i }}">
+              {{ i }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="TrainingFeedbackForm.controls['TrainingName'].hasError('required')"
+          >
+          TrainingName is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Employee</mat-label>
+  
+          <input
+            matInput
+            placeholder="Employee"
+            formControlName="Employee"
+          />
+          <mat-error
+            *ngIf="TrainingFeedbackForm.controls['Employee'].hasError('required')"
+          >
+          Employee is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+  
+  
+        <mat-form-field>
+          <mat-label>Feedback</mat-label>
+          <textarea
+            matInput
+            placeholder="Feedback"
+            formControlName="Feedback"
+          ></textarea>
+          <mat-error
+            *ngIf="
+              TrainingFeedbackForm.controls['Feedback'].hasError('required')
+            "
+          >
+            Job Description is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <br />
+        
+        <br />
+        <!-- </mat-form-field> -->
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </mat-card-actions>
+    </mat-card>
+    <br />
+    <br />
+  </form>
+  
