@@ -40,6 +40,13 @@ const routes: Routes = [
       import('./requirement-structure/requirement-structure.module').then(
         (m) => m.RequirementStructureModule),
   },
+  {
+    path: 'training',
+    loadChildren: () =>
+      import('./training/training.module').then(
+        (m) => m.TrainingModule
+      ),
+  }
 ];
 
 @NgModule({
