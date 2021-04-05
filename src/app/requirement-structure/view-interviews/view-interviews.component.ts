@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RequirementStructureService } from 'src/app/services/requirement-structure.service';
 
 @Component({
@@ -10,7 +11,8 @@ export class ViewInterviewsComponent implements OnInit {
 
   data;
   constructor(
-    private requirementService: RequirementStructureService
+    private requirementService: RequirementStructureService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -20,4 +22,15 @@ export class ViewInterviewsComponent implements OnInit {
     })
   }
 
+  viewInterviews() {
+    console.log("line 64")
+    this.router.navigateByUrl('/reqStr/fixInterview');
+  }
+
+  editSchedule(object){
+    console.log("edit")
+    this.router.navigateByUrl(`/reqStr/editSchedule/${
+      object
+    }`)
+  }
 }

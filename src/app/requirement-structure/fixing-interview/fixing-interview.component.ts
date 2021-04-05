@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { RequirementStructureService } from 'src/app/services/requirement-structure.service';
 import { TitleService } from 'src/app/services/title.service';
 import * as json_data from './fix-interview.json';
@@ -30,13 +30,16 @@ export class FixingInterviewComponent implements OnInit {
   Status = json_data.Status;
 
   title: String;
+  urlLength: number;
+  Id: any;
 
   constructor(
     private fb: FormBuilder,
     private titleService: TitleService,
     private requirementService: RequirementStructureService,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.titleService.setTitle('Schedule an Interview');
   }
@@ -45,6 +48,23 @@ export class FixingInterviewComponent implements OnInit {
     this.titleService
       .getTitle()
       .subscribe((appTitle) => (this.title = appTitle));
+
+      this.urlLength = window.location.href.split('/').length
+      console.log(this.urlLength)
+      
+        if (this.urlLength>5){
+          this.activatedRoute.params.subscribe((params) => {
+            this.Id = params.id;
+          });
+          this.requirementService.editSchedule(this.Id).subscribe(
+            (data) => {
+              this.FixInterviewForm.patchValue(data);
+              console.log(this.FixInterviewForm)
+            },
+            (err) => {}
+          );
+        }
+        
   }
   onSubmit() {
     if (this.FixInterviewForm.valid) {
@@ -60,8 +80,5 @@ export class FixingInterviewComponent implements OnInit {
         });
     }
   }
-  viewInterviews() {
-    console.log("line 64")
-    this.router.navigateByUrl('/requirementStructure/interviews');
-  }
+  
 }

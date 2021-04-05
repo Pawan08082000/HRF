@@ -7,11 +7,12 @@
     <mat-card-content>
       <mat-form-field>
         <mat-label>Job Title</mat-label>
-        <mat-select matNativeControl formControlName="JobTitle">
-          <mat-option *ngFor="let i of jobTitle" value="{{ i }}">
-            {{ i }}
-          </mat-option>
-        </mat-select>
+        <input
+          matInput
+          placeholder="Job Title"
+          formControlName="JobTitle"
+        />
+       
         <mat-error
           *ngIf="AddJobVacancyForm.controls['JobTitle'].hasError('required')"
         >
