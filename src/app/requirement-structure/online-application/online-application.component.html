@@ -1,0 +1,128 @@
+<br>
+<form [formGroup]="ApplyForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="container col-sm-6 mt-2 mb-2">
+    <div class="justify-content-between d-flex">
+      <mat-card-title>{{ title }} </mat-card-title>
+    </div>
+    <hr />
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>FirstName</mat-label>
+        <input matInput placeholder="FirstName" formControlName="FirstName" />
+
+        <mat-error *ngIf="ApplyForm.controls['FirstName'].hasError('required')">
+          FirstName is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>LastName</mat-label>
+        <input matInput placeholder="LastName" formControlName="LastName" />
+
+        <mat-error *ngIf="ApplyForm.controls['LastName'].hasError('required')">
+          LastName is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Candidate's Email</mat-label>
+
+        <input
+          matInput
+          placeholder="Candidate's Email"
+          formControlName="Email"
+        />
+        <mat-error *ngIf="ApplyForm.controls['Email'].hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="ApplyForm.controls['Email'].hasError('email')">
+          Email format is <strong>incorrect</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Portfolio website</mat-label>
+        <input
+          type="text"
+          maxlength="255"
+          value="http://"
+          matInput
+          formControlName="Website"
+        />
+
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Position you are applying for</mat-label>
+        <input matInput placeholder="Position you are applying for" formControlName="Position" />
+
+        <mat-error *ngIf="ApplyForm.controls['Position'].hasError('required')">
+            Position is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Salary Requirements</mat-label>
+        <input
+        placeholder="Salary Requirements"
+          matInput
+          formControlName="Salary"
+        />
+
+      </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>When can you start?</mat-label>
+        <input
+        placeholder="When can you start?"
+          matInput
+          formControlName="Notice"
+        />
+
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" formControlName="Phone" />
+
+        <mat-error *ngIf="ApplyForm.controls['Phone'].hasError('required')">
+          Phone is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field style="width: 85%; max-width: 535px; margin-right: 10px;">
+        <mat-label>Last company you worked for</mat-label>
+        <input matInput placeholder="LastCompany" formControlName="LastCompany" />
+
+      </mat-form-field>
+
+      <div style="margin: 12px;">
+        <mat-label>Are you willing to relocate?</mat-label>
+      <br>
+        <mat-radio-group aria-label="Select an option" formControlName="relocate">
+          <mat-radio-button value="yes"  checked="checked" >yes</mat-radio-button><br>
+          <mat-radio-button value="no">no</mat-radio-button><br>
+          <mat-radio-button value="notSure">not sure</mat-radio-button>
+  
+        </mat-radio-group>
+      </div>
+      <mat-form-field style="width: 85%; max-width: 535px">
+        <mat-label>Reference / Comments / Questions</mat-label>
+        <textarea
+          matInput
+          placeholder="Reference / Comments / Questions"
+          formControlName="Comments"
+        ></textarea>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <br />
+      <!-- <mat-form-field > -->
+
+      <!-- </mat-form-field> -->
+      <button mat-raised-button color="primary" type="submit">Save</button>
+    </mat-card-actions>
+  </mat-card>
+  <br />
+  <br />
+</form>

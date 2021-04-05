@@ -17,11 +17,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
+import { OnlineApplicationComponent } from './online-application/online-application.component';
 
 
 
 @NgModule({
-  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent, FixingInterviewComponent, ViewInterviewsComponent],
+  declarations: [AddJobVacancyComponent, ViewJobVacancyComponent, FixingInterviewComponent, ViewInterviewsComponent, OnlineApplicationComponent],
   imports: [
     CommonModule,
     RequirementStructureRoutingModule,
