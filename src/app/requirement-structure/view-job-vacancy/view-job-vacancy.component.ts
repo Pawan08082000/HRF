@@ -10,7 +10,7 @@ import { RequirementStructureService } from 'src/app/services/requirement-struct
 export class ViewJobVacancyComponent implements OnInit {
 
  Data = []
-
+  
   constructor(
     private requirementService: RequirementStructureService,
     private route: Router 
@@ -21,6 +21,7 @@ export class ViewJobVacancyComponent implements OnInit {
       console.log(data)
       for(let i in data){
         this.Data.push({
+          Id: data[i]._id,
         HiringManager : data[i].HiringManager,
         JobDescription : data[i].JobDescription,
         JobLocation: data[i].JobLocation,
@@ -34,11 +35,17 @@ export class ViewJobVacancyComponent implements OnInit {
   }
 
   AddJobVacancy(){
-    this.route.navigateByUrl("/requirementStructure/addJobVacancy")
+    this.route.navigateByUrl("/reqStr/addJob")
 
   }
 
   FixInterview(){
-    this.route.navigateByUrl("/requirementStructure/fixInterview")
+    this.route.navigateByUrl("/reqStr/interviews")
+  }
+
+  editVacancy(object){
+    console.log('inside edit', object)
+    this.route.navigateByUrl(`/reqStr/editJob/${object}`)
+
   }
 }

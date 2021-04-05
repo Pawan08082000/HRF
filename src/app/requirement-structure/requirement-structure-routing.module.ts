@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'addJobVacancy',
+        path: 'addJob',
         component: AddJobVacancyComponent,
         canActivate: [AuthGuard],
 
@@ -29,6 +29,16 @@ const routes: Routes = [
       {
         path: "interviews",
         component: ViewInterviewsComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: "editJob/:id",
+        component: AddJobVacancyComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: "editSchedule/:id",
+        component: FixingInterviewComponent,
         canActivate: [AuthGuard]
       }
     ]

@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     //this is for lazy loading
-    path: 'requirementStructure',
+    path: 'reqStr',
     loadChildren: () =>
       import('./requirement-structure/requirement-structure.module').then(
         (m) => m.RequirementStructureModule),

@@ -1,10 +1,10 @@
 <br><br>
 <button color="primary" (click)="AddJobVacancy()">
-    <mat-icon>add</mat-icon><p style="display: inline;">Add a new job vacancy</p>
+    <mat-icon>add</mat-icon><p style="display: inline;">Add a vacancy</p>
 </button>
 
 <button color="primary" (click)="FixInterview()">
-  <mat-icon>add</mat-icon><p style="display: inline;">Fixing an interview </p>
+  <mat-icon>add</mat-icon><p style="display: inline;">Scheduled interviews </p>
 </button>
 
 <div class="container">
@@ -12,7 +12,7 @@
       <div >
         <mat-card
         *ngFor = "let i of Data"
-        >
+        ><mat-icon (click) = "editVacancy(i.Id)">edit</mat-icon>
           <mat-card-title 
             >{{i.JobTitle}}
            
@@ -35,7 +35,12 @@
             >
             <mat-card-content
               >Hiring Manager: {{i.HiringManager}}
-            >
+            
+          </mat-card-content>
+
+          <mat-card-content
+              >Job Description: {{i.JobDescription}}
+            
           </mat-card-content>
           </mat-card-content>
         </mat-card>

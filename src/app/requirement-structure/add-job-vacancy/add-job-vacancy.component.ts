@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { RequirementStructureService } from 'src/app/services/requirement-structure.service';
 import { TitleService } from 'src/app/services/title.service';
-import * as json_data from './addJobVacancy.json'
+// import * as json_data from './addJobVacancy.json'
 @Component({
   selector: 'app-add-job-vacancy',
   templateUrl: './add-job-vacancy.component.html',
@@ -21,14 +22,17 @@ export class AddJobVacancyComponent implements OnInit {
     JobDescription: [null, Validators.required],
     
   });
-  jobTitle = json_data.JobTitle;
+  // jobTitle = json_data.JobTitle;
 
   title: String;
+  urlLength: number;
+  Id: any;
   constructor(
     private fb: FormBuilder,
     private titleService: TitleService,
     private requirementService: RequirementStructureService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private activatedRoute: ActivatedRoute
 
   ) {
     this.titleService.setTitle('Add Job Vacancy');
@@ -40,6 +44,22 @@ export class AddJobVacancyComponent implements OnInit {
       .getTitle()
       .subscribe((appTitle) => (this.title = appTitle));
 
+      
+    this.urlLength = window.location.href.split('/').length
+    console.log(this.urlLength)
+    
+      if (this.urlLength>5){
+        this.activatedRoute.params.subscribe((params) => {
+          this.Id = params.id;
+        });
+        this.requirementService.editVacancy(this.Id).subscribe(
+          (data) => {
+            this.AddJobVacancyForm.patchValue(data);
+            console.log(this.AddJobVacancyForm)
+          },
+          (err) => {}
+        );
+      }
       
   }
 

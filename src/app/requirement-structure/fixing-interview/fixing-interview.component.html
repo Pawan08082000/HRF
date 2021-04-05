@@ -3,19 +3,18 @@
     <mat-card class="container col-sm-6 mt-2 mb-2">
       <div class="justify-content-between d-flex">
         <mat-card-title>{{ title }}
-          <button mat-raised-button color="accent"
-          (click) = "viewInterviews()">View Scheduled Interviews</button>
-        </mat-card-title>
+           </mat-card-title>
       </div>
       <hr />
       <mat-card-content>
         <mat-form-field>
           <mat-label>Vacancy</mat-label>
-          <mat-select matNativeControl formControlName="Vacancy">
-            <mat-option *ngFor="let i of Vacancy" value="{{ i }}">
-              {{ i }}
-            </mat-option>
-          </mat-select>
+          <input
+            matInput
+            placeholder="Vacancy"
+            formControlName="Vacancy"
+          />
+        
           <mat-error
             *ngIf="FixInterviewForm.controls['Vacancy'].hasError('required')"
           >

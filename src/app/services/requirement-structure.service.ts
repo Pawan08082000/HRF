@@ -21,7 +21,9 @@ export class RequirementStructureService {
   private getJobVacancy = "requirementStructure/getJobVacancy"
   private fixInterviews = "requirementStructure/fixInterview"
   private interview = "requirementStructure/getInterviews"
-  
+  private editJob = "requirementStructure/editJob"
+  private editInterview = "requirementStructure/editSchedule"
+
 addJobVacancies(job_details): Observable<any> {
   return this.http.post(this.API + this.addJobVacancy, job_details, this.httpOptions);
 }
@@ -35,5 +37,13 @@ fixInterview(details): Observable<any> {
 }
 getSchedules(){
   return this.http.get(this.API + this.interview, this.httpOptions)
+}
+
+editVacancy(id: string){
+  return this.http.get(this.API + this.editJob + `/${id}`, this.httpOptions)
+}
+
+editSchedule(id: string){
+  return this.http.get(this.API + this.editInterview + `/${id}`, this.httpOptions)
 }
 }

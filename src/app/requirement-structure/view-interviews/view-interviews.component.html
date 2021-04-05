@@ -1,14 +1,24 @@
-<br><br>
-<mat-list
-*ngFor = " let i of data">
-    <mat-list-item>{{i.Vacancy}}</mat-list-item>
+<br /><br />
+<mat-card-title>
+  <button mat-raised-button color="accent" (click)="viewInterviews()">
+    Schedule Interview
+  </button>
+  <br />
+</mat-card-title>
+<hr />
+<mat-list *ngFor="let i of data">
 
-      Candidate Email: {{i.Candidate}}<br>
-      <b>{{i.Comments}}</b><br>Interview Date: {{i.Date}}<br>
-      <b>Interview Time: {{i.InterviewTime}}</b><br>Mode Of Interview:{{i.Method}}<br>
-      Status of Application: {{i.Status}}
-    
- 
-    <mat-divider></mat-divider>
-   
-  </mat-list>
+  <mat-list-item>{{ i.Vacancy }}
+  <mat-icon (click)="editSchedule(i._id)" style="float: right;">edit</mat-icon>
+
+  </mat-list-item>
+
+  Candidate Email: {{ i.Candidate }}<br />
+  <b>{{ i.Comments }}</b
+  ><br />Interview Date: {{ i.Date }}<br />
+  <b>Interview Time: {{ i.InterviewTime }}</b
+  ><br />Mode Of Interview:{{ i.Method }}<br />
+  Status of Application: {{ i.Status }}
+
+  <mat-divider></mat-divider>
+</mat-list>
