@@ -6,6 +6,7 @@ import { AuthGuard } from '../auth/auth.guard';
 import { ViewJobVacancyComponent } from './view-job-vacancy/view-job-vacancy.component';
 import { FixingInterviewComponent } from './fixing-interview/fixing-interview.component';
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
+import { OnlineApplicationComponent } from './online-application/online-application.component';
 
 const routes: Routes = [
   {
@@ -40,6 +41,10 @@ const routes: Routes = [
         path: "editSchedule/:id",
         component: FixingInterviewComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: "apply/:id",
+        component: OnlineApplicationComponent
       }
     ]
   }

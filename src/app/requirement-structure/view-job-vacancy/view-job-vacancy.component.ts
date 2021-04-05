@@ -48,4 +48,10 @@ export class ViewJobVacancyComponent implements OnInit {
     this.route.navigateByUrl(`/reqStr/editJob/${object}`)
 
   }
+
+  Apply(object){
+    console.log("Applied")
+    this.route.navigateByUrl(`/reqStr/apply/${object}`)
+
+  }
 }
