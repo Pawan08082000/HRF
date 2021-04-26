@@ -25,3 +25,8 @@ mat-form-field{
     left: calc(50% - 10px); /*'10px'-same as your required circle radius*/
     top: calc(50% - 10px); /*'10px'-same as your required circle radius*/
   }
+
+  
+.file-input {
+  display: none;
+}
