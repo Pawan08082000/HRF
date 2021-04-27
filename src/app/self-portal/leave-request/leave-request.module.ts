@@ -16,11 +16,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { CalendarApi, FullCalendarComponent, FullCalendarModule,  } from '@fullcalendar/angular'; // for FullCalendar
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin
 import interactionPlugin from '@fullcalendar/interaction'
 import timegridPlugin from '@fullcalendar/timegrid'
 import listgridPlugin from '@fullcalendar/list'
+import { DateDifferencePipe } from '../../_helpers/pipes/date-difference.pipe';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -30,7 +32,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   listgridPlugin
 ]);
 @NgModule({
-  declarations: [EventCalendarComponent,LeaveFormComponent],
+  declarations: [EventCalendarComponent,LeaveFormComponent,DateDifferencePipe],
   imports: [
     CommonModule,
     LeaveRequestRoutingModule,

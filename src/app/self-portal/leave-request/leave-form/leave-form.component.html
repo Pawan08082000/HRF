@@ -6,27 +6,15 @@
       </mat-card-header>
       <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
         <!-- <form [formGroup]="AddEmployeeForm"> -->
-
+        <!-- <mat-autocomplete #auto="matAutocomplete"> -->
         <mat-form-field class="full-width">
-          <mat-label>Select Employee:</mat-label>
-          <mat-select matNativeControl formControlName="SelectEmp">
-            <mat-option
-              *ngFor="let i of this.empName"
-              value="{{ i.EmployeeName }}"
-            >
-              {{ i.EmployeeName }}
-            </mat-option>
-          </mat-select>
-          <mat-error
-            *ngIf="leaveForm.controls['SelectEmp'].hasError('required')"
+          <mat-label>Leave Approver : </mat-label>
+          <mat-select
+            matNativeControl
+            formControlName="LeaveApprover"
+            (selectionChange)="onChangeDepartment()"
           >
-            <strong>*required</strong>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-label>Leave Approver:</mat-label>
-          <mat-select matNativeControl formControlName="LeaveApprover">
-            <mat-option *ngFor="let i of departments" value="{{ i }}">
+            <mat-option *ngFor="let i of this.department" value="{{ i }}">
               {{ i }}
             </mat-option>
           </mat-select>
@@ -36,6 +24,20 @@
             <strong>*required</strong>
           </mat-error>
         </mat-form-field>
+        <mat-form-field class="full-width">
+          <mat-label>Select Employee:</mat-label>
+          <mat-select matNativeControl formControlName="SelectEmp">
+            <mat-option *ngFor="let i of this.empName" value="{{ i._id }}">
+              {{ i.EmployeeName }}
+            </mat-option>
+          </mat-select>
+          <mat-error
+            *ngIf="leaveForm.controls['SelectEmp'].hasError('required')"
+          >
+            <strong>*required</strong>
+          </mat-error>
+        </mat-form-field>
+        <!-- </mat-autocomplete> -->
         <mat-form-field class="full-width">
           <mat-label>Leave Type:</mat-label>
           <mat-select matNativeControl formControlName="LeaveType">
@@ -94,6 +96,7 @@
             [matDatepicker]="EndDate"
             (focus)="EndDate.open()"
             formControlName="EndDate"
+            (dateChange)="onChangeDate()"
           />
           <mat-datepicker-toggle
             matSuffix
