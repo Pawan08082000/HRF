@@ -41,7 +41,12 @@ export class FixingInterviewComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {
-    this.titleService.setTitle('Schedule an Interview');
+    this.urlLength = window.location.href.split('/').length
+    if(this.urlLength > 5){
+    this.titleService.setTitle('Edit Interview');
+
+    }
+    else this.titleService.setTitle('Schedule an Interview');
   }
 
   ngOnInit(): void {

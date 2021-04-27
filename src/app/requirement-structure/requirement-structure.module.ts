@@ -18,6 +18,7 @@ import {MatListModule} from '@angular/material/list';
 
 import { ViewInterviewsComponent } from './view-interviews/view-interviews.component';
 import { OnlineApplicationComponent } from './online-application/online-application.component';
+import {  MatToolbarModule } from '@angular/material/toolbar';
 
 
 
@@ -37,8 +38,8 @@ import { OnlineApplicationComponent } from './online-application/online-applicat
     MatIconModule,
     MatDatepickerModule,
     MatDividerModule,
-    MatListModule
-
+    MatListModule,
+    MatToolbarModule
   ]
 })
 export class RequirementStructureModule { }

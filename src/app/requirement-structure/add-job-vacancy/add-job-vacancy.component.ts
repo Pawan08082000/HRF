@@ -35,7 +35,11 @@ export class AddJobVacancyComponent implements OnInit {
     private activatedRoute: ActivatedRoute
 
   ) {
-    this.titleService.setTitle('Add Job Vacancy');
+    this.urlLength = window.location.href.split('/').length
+    if(this.urlLength > 5) {
+    this.titleService.setTitle('Edit Vacancy');
+
+    } else this.titleService.setTitle('Add Job Vacancy');
 
    }
 

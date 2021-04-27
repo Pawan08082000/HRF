@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { RequirementStructureService } from 'src/app/services/requirement-structure.service';
 import { TitleService } from 'src/app/services/title.service';
 
 @Component({
@@ -21,13 +24,20 @@ export class OnlineApplicationComponent implements OnInit {
     Notice: [null],
     relocate: [null],
     Comments: [null],
-    LastCompany:[null]
+    LastCompany:[null],
+    Resume: [null, Validators.required]
   });
   title: String;
   
+  fileName = '';
+  Id: any;
+
   constructor(
     private fb: FormBuilder,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private requirementService: RequirementStructureService,
+    private _snackBar: MatSnackBar,
+    private activatedRoute: ActivatedRoute
   ) {
     this.titleService.setTitle('Apply');
 
@@ -39,9 +49,45 @@ export class OnlineApplicationComponent implements OnInit {
       .getTitle()
       .subscribe((appTitle) => (this.title = appTitle));
 
+      this.activatedRoute.params.subscribe((params) => {
+        this.Id = params.id;
+        this.ApplyForm.patchValue({Position: this.Id})
+        // console.log(params.id)
+      });
   }
 
   onSubmit(){
-    console.log("submitted")
+    // console.log("submitted")
+    console.log(this.ApplyForm)
+    if (this.ApplyForm.valid) {
+      this.requirementService
+        .jobApply(this.ApplyForm.value)
+        .subscribe((data) => {
+          if (data.message) {
+            this._snackBar.open(data.message, 'OK', {
+              duration: 2000,
+            });
+          }
+          this.ApplyForm.reset();
+        });
+    }
   }
+
+  onFileSelected(event) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+
+        this.fileName = file.name;
+
+        const formData = new FormData();
+
+        formData.append("resume", file);
+        // console.log("uploaded")
+        // const upload$ = this.http.post("/api/thumbnail-upload", formData);
+
+        // upload$.subscribe();
+    }
+}
 }
