@@ -1,17 +1,21 @@
 import { EmployeeService } from 'src/app/services/employee.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, PipeTransform } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import * as json_data from '../../../menu-master/employee-master/add-employee/addEmployee.json';
+import { DateDifferencePipe } from '../../../_helpers/pipes/date-difference.pipe';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-leave-form',
   templateUrl: './leave-form.component.html',
-  styleUrls: ['./leave-form.component.scss']
+  styleUrls: ['./leave-form.component.scss'],
+  providers: [ DateDifferencePipe ]
 })
 export class LeaveFormComponent implements OnInit {
 
   empName;
-  constructor(private fb : FormBuilder, private empService : EmployeeService) { }
+  department;
+  constructor(private dateDiff : DateDifferencePipe, private fb : FormBuilder, private empService : EmployeeService) { }
 
   leaveForm = this.fb.group({
     SelectEmp: [null, Validators.required],
@@ -23,24 +27,46 @@ export class LeaveFormComponent implements OnInit {
     EndDate: [null, Validators.required],
     StartTime: [null, Validators.required],
     EndTime: [null, Validators.required],
-    Days: [{value:10, disabled: true}],
+    Days: [{value:'',disabled: true}],
     ReasonForLeave: [null, Validators.required],
 
   });
   departments = json_data.Department;
   LeaveFor;
+  matAutocomplete;
+  
   ngOnInit(): void {
-    this.empService.getEmployeeName().subscribe((data)=>{
-      this.empName = data
-      for (var i in this.empName){
-        console.log(this.empName[i].EmployeeName)
-      }
+    this.getDepartment()
+    console.log(this.leaveForm.valueChanges)
+    
+  }
+
+  getDepartment(){
+    this.empService.getDepartment().subscribe((data)=>{
+      this.department = data
     },
     (err)=>{
       console.log(err);
     })
   }
-  onSubmit(){
+  onChangeDepartment(){
+    if(this.leaveForm.value.LeaveApprover){
+    this.empService.getEmployeeName(this.leaveForm.value.LeaveApprover).subscribe((data)=>{
+      this.empName = data
+    },
+    (err)=>{
+      console.log(err);
+    })}
+  }
+  onChangeDate(){
+    console.log('hwllo')
+    this.leaveForm.setValue({days : this.dateDiff.transform(this.leaveForm.value.StartDate,this.leaveForm.value.EndDate)})
+    console.log(this.leaveForm.value.Days)
+  }
+  changing(){
+    console.log('jhbviebiebvoeiuvbo')
+  }
+   onSubmit(){
 
   }
 
