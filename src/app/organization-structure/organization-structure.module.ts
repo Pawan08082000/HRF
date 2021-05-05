@@ -1,3 +1,4 @@
+import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule } from '@angular/core';
@@ -27,6 +28,7 @@ import { EditPayHeadComponent } from './edit-pay-head/edit-pay-head.component';
     MatPaginatorModule,
     MatSortModule,
     MatIconModule,
+    MatButtonModule,
     MatProgressSpinnerModule,
     MatDatepickerModule,
     FormsModule,
