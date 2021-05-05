@@ -24,7 +24,7 @@ export class TrainingFeedbackComponent implements OnInit {
     private fb: FormBuilder,
     private titleService: TitleService
   ) {
-    this.titleService.setTitle('Add Job Vacancy');
+    this.titleService.setTitle('Training Feedback');
 
    }
 
