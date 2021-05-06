@@ -13,8 +13,8 @@
     <div class="container-fluid border-black">
       <div class="row card-group">
         <div class="col-3" *ngFor="let role of roles">
-          <div class="card">
-            <div class="card-block" (click)=navigation(role)>
+          <div class="card p-shadow-24">
+            <div class="card-block" (click)="navigation(role)">
               <span class="material-icons">
                 {{ role["iconName"] }}
               </span>

@@ -1,7 +1,7 @@
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -15,10 +15,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatIconModule } from '@angular/material/icon';
 import { EditPayHeadComponent } from './edit-pay-head/edit-pay-head.component';
+import { OrgChartComponent } from './org-chart/org-chart.component';
+import { DiagramModule, HierarchicalTreeService, DataBindingService } from '@syncfusion/ej2-angular-diagrams';
 
 
 @NgModule({
-  declarations: [PayHeadListComponent, NoticeComponent, EditPayHeadComponent],
+  declarations: [PayHeadListComponent, NoticeComponent, EditPayHeadComponent, OrgChartComponent],
   imports: [
     CommonModule,
     OrganizationStructureRoutingModule,
@@ -32,7 +34,10 @@ import { EditPayHeadComponent } from './edit-pay-head/edit-pay-head.component';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    DiagramModule
+  ],
+  providers: [HierarchicalTreeService, DataBindingService],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class OrganizationStructureModule { }
