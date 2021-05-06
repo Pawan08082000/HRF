@@ -10,6 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./notice.component.scss']
 })
 export class NoticeComponent implements OnInit {
+  title="Notice";
   message;
 
   noticeForm = this.fb.group({

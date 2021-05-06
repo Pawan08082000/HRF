@@ -7,6 +7,7 @@ import { FormGroup,FormBuilder, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./edit-pay-head.component.scss']
 })
 export class EditPayHeadComponent implements OnInit {
+  title = "Pay Head";
   message;
 
   payHeadForm = this.fb.group({

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth.guard';
 import { EditPayHeadComponent } from './edit-pay-head/edit-pay-head.component';
 import { NoticeComponent } from './notice/notice.component';
+import { OrgChartComponent } from './org-chart/org-chart.component';
 import { PayHeadListComponent } from './pay-head-list/pay-head-list.component';
 
 
@@ -24,7 +25,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        component: PayHeadListComponent,
+        component: OrgChartComponent,
         canActivate: [AuthGuard],
 
       },
