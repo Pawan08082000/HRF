@@ -20,7 +20,7 @@ export class OnlineApplicationComponent implements OnInit {
     Phone: [null, Validators.required],
     Position: [null, Validators.required],
     Website: [null],
-    Salary: [null],
+    Salary: [null, Validators.required],
     Notice: [null],
     relocate: [null],
     Comments: [null],
@@ -29,7 +29,8 @@ export class OnlineApplicationComponent implements OnInit {
   });
   title: String;
   
-  fileName = '';
+  Resume;
+  ResumeName;
   Id: any;
 
   constructor(
@@ -57,11 +58,26 @@ export class OnlineApplicationComponent implements OnInit {
   }
 
   onSubmit(){
-    // console.log("submitted")
-    console.log(this.ApplyForm)
-    if (this.ApplyForm.valid) {
+
+    if (this.ApplyForm.valid && this.Resume) {
+      const formData = new FormData();
+
+        formData.append("file", this.Resume);
+        formData.append("FirstName", this.ApplyForm.get('FirstName').value);
+        formData.append("LastName", this.ApplyForm.get('LastName').value);
+        formData.append("Email", this.ApplyForm.get('Email').value);
+        formData.append("Phone", this.ApplyForm.get('Phone').value);
+        formData.append("Position", this.ApplyForm.get('Position').value);
+        formData.append("Website", this.ApplyForm.get('Website').value);
+        formData.append("Salary", this.ApplyForm.get('Salary').value);
+        formData.append("Notice", this.ApplyForm.get('Notice').value);
+        formData.append("relocate", this.ApplyForm.get('relocate').value);
+        formData.append("Comments", this.ApplyForm.get('Comments').value);
+        formData.append("LastCompany", this.ApplyForm.get('LastCompany').value);
+        formData.append("Resume", this.ApplyForm.get('Resume').value);
+
       this.requirementService
-        .jobApply(this.ApplyForm.value)
+        .jobApply(formData)
         .subscribe((data) => {
           if (data.message) {
             this._snackBar.open(data.message, 'OK', {
@@ -79,15 +95,9 @@ export class OnlineApplicationComponent implements OnInit {
 
     if (file) {
 
-        this.fileName = file.name;
-
-        const formData = new FormData();
-
-        formData.append("resume", file);
-        // console.log("uploaded")
-        // const upload$ = this.http.post("/api/thumbnail-upload", formData);
-
-        // upload$.subscribe();
+        this.Resume = file;
+        this.ResumeName = file.name
+       
     }
 }
 }

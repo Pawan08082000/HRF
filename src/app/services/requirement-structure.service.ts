@@ -50,6 +50,7 @@ editSchedule(id: string){
 }
 
 jobApply(data): Observable<any>{
-  return this.http.post(this.API + this.apply, data, this.httpOptions)
+  
+  return this.http.post(this.API + this.apply, data)
 }
 }
