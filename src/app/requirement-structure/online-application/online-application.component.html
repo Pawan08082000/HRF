@@ -1,5 +1,5 @@
 <br>
-<form [formGroup]="ApplyForm" novalidate (ngSubmit)="onSubmit()">
+<form [formGroup]="ApplyForm" novalidate >
   <mat-card class="container col-sm-6 mt-2 mb-2">
     <div class="justify-content-between d-flex">
       <mat-card-title>{{ title }} </mat-card-title>
@@ -68,6 +68,9 @@
           formControlName="Salary"
         />
 
+        <mat-error *ngIf="ApplyForm.controls['Salary'].hasError('required')">
+          Expected Salary is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
 
@@ -108,11 +111,12 @@
       </div>
 
       <input formControlName="Resume" type="file" class="file-input"
-       (change)="onFileSelected($event)" #fileUpload>
+      (change)="onFileSelected($event)"
+       #fileUpload>
 
 <div class="file-upload">
 
-   {{fileName || "No file uploaded yet."}}
+   {{ResumeName || "No file uploaded yet."}}
 
     <button mat-mini-fab color="primary" class="upload-btn"
       (click)="fileUpload.click()">
@@ -134,7 +138,8 @@
       <!-- <mat-form-field > -->
 
       <!-- </mat-form-field> -->
-      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-raised-button color="primary" type="submit"
+      (click)=onSubmit()>Save</button>
     </mat-card-actions>
   </mat-card>
   <br />
