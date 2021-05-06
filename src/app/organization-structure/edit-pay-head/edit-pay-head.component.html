@@ -1,0 +1,61 @@
+<form
+  [formGroup]="payHeadForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  class="container"
+>
+  <mat-card class="container col-sm-6 mt-2 mb-2">
+    <div class="justify-content-between d-flex">
+      <mat-card-title>{{ title }} </mat-card-title>
+    </div>
+    <hr />
+    <mat-card-content>
+      <mat-label class="col alert alert-success center" *ngIf="this.message">{{
+        this.message.message
+      }}</mat-label>
+      <mat-form-field>
+        <mat-label>Pay Head :</mat-label>
+        <input matInput formControlName="payHead" />
+        <mat-error *ngIf="payHeadForm.controls['payHead'].hasError('required')">
+          *Pay Head is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Type :</mat-label>
+        <input matInput formControlName="type" />
+        <mat-error *ngIf="payHeadForm.controls['type'].hasError('required')">
+          *Type is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Short Code :</mat-label>
+        <input matInput formControlName="shortCode" />
+        <mat-error
+          *ngIf="payHeadForm.controls['shortCode'].hasError('required')"
+        >
+          *Short Code is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Calculated Type :</mat-label>
+        <input matInput formControlName="calculatedType" />
+        <mat-error
+          *ngIf="payHeadForm.controls['calculatedType'].hasError('required')"
+        >
+          *Calculated Type is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Value :</mat-label>
+        <input matInput formControlName="value" />
+        <mat-error *ngIf="payHeadForm.controls['value'].hasError('required')">
+          *Value is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</form>

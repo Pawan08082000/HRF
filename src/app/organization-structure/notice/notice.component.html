@@ -1,0 +1,71 @@
+<form
+  [formGroup]="noticeForm"
+  novalidate
+  (ngSubmit)="onSubmit()"
+  class="container"
+>
+  <mat-card class="container col-sm-6 mt-2 mb-2">
+    <div class="justify-content-between d-flex">
+      <mat-card-title>{{ title }} </mat-card-title>
+    </div>
+    <hr />
+    <mat-card-content>
+      <mat-label class="col alert alert-success center" *ngIf="this.message">{{
+        this.message.message
+      }}</mat-label>
+
+      <div class="row align-items-center">
+        <div class="col-sm-11">
+          <mat-icon class="icon">notification_important</mat-icon>
+        </div>
+      </div>
+      <mat-form-field class="full-width">
+        <mat-label>Title:</mat-label>
+        <input matInput placeholder="Title" formControlName="title" />
+        <mat-error *ngIf="noticeForm.controls['title'].hasError('required')">
+          Title <strong>*required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Description:</mat-label>
+        <input
+          matInput
+          placeholder="Description"
+          formControlName="description"
+        />
+        <mat-error
+          *ngIf="noticeForm.controls['description'].hasError('required')"
+        >
+          Description <strong>*required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Notice Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="noticeDate"
+          (focus)="noticeDate.open()"
+          formControlName="noticeDate"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="noticeDate"
+        ></mat-datepicker-toggle>
+        <mat-error
+          *ngIf="noticeForm.controls['noticeDate'].hasError('required')"
+        >
+          <strong>*required</strong>
+        </mat-error>
+      </mat-form-field>
+      <mat-datepicker #noticeDate></mat-datepicker>
+      <br />
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Save</button>
+      </mat-card-actions>
+      <br />
+      <br />
+    </mat-card-content>
+  </mat-card>
+</form>

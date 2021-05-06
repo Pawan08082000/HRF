@@ -46,7 +46,14 @@ const routes: Routes = [
       import('./training/training.module').then(
         (m) => m.TrainingModule
       ),
-  }
+  },
+  {
+    path: 'orgStr',
+    loadChildren: () =>
+      import('./organization-structure/organization-structure.module').then(
+        (m) => m.OrganizationStructureModule
+      ),
+  },
 ];
 
 @NgModule({

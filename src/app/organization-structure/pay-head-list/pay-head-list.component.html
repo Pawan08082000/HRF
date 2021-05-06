@@ -1,0 +1,25 @@
+hello
+<mat-table class="container">
+  <ng-container matColumnDef="payHead"
+    ><div *matHeaderCellDef>Pay Head</div>
+  </ng-container>
+
+  <ng-container matColumnDef="type"
+    ><div *matHeaderCellDef>Type</div>
+  </ng-container>
+  <ng-container matColumnDef="shortCode">
+    <div *matHeaderCellDef>Short Code</div></ng-container
+  >
+  <ng-container matColumnDef="calcType">
+    <div *matHeaderCellDef>Calculated Type</div></ng-container
+  >
+  <ng-container matColumnDef="value"
+    ><div *matHeaderCellDef>Value</div>
+  </ng-container>
+  <ng-container matColumnDef="edit"
+    ><div *matHeaderCellDef>Edit</div>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

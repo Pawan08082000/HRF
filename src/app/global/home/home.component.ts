@@ -33,8 +33,13 @@ export class HomeComponent implements OnInit {
       this.route.navigateByUrl("/selfPortal/leaveReq/form")
     if(role.title == "Requirment Structure")
       this.route.navigateByUrl("/reqStr/viewJobVacancies")
+
     if(role.title == "Training Module")
       this.route.navigateByUrl("/training/trainingFeedback")
     
+
+          if(role.title == "Organization Structure")
+          this.route.navigateByUrl("/orgStr/payHead")
+
   }
 }
