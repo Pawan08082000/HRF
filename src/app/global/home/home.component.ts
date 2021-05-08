@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.hrroleService.gethrRoles().subscribe(data =>{
       this.roles = data
-      console.log(this.roles, data)
     },
     (err=>{
       console.log(err)

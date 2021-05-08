@@ -13,7 +13,7 @@ export class OrgsStructService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   
-  private API = 'http://127.0.0.1:9000/api';
+  private API = 'https://m2aster.herokuapp.com/api';
   private addNotice = "/orgsStruct/insertNotice"
   private insertPayHead = "/orgsStruct/addPayHead"
 

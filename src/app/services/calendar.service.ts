@@ -12,7 +12,7 @@ export class CalendarService {
 
   ) { }
 
-  private API = 'http://127.0.0.1:9000/api/';
+  private API = 'https://m2aster.herokuapp.com/api/';
   private addEvent = "eventCalendar/postEvent";
   private showEvent = "eventCalendar/showEvents"
 private delEvent = "eventCalendar/deleteEvent"
