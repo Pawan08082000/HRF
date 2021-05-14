@@ -12,7 +12,10 @@
   <div class="col col-sm-12">
     <div class="container-fluid border-black">
       <div class="row card-group">
-        <div class="col-3" *ngFor="let role of roles">
+        <div
+          [ngClass]="!deviceXs ? 'col-3' : 'col-4'"
+          *ngFor="let role of roles"
+        >
           <div class="card p-shadow-24">
             <div class="card-block" (click)="navigation(role)">
               <span class="material-icons">

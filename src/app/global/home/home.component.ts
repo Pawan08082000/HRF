@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import {HrRolesService} from '../../services/hr-roles.service'
+import { MediaObserver, MediaChange } from '@angular/flex-layout';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +13,12 @@ import {HrRolesService} from '../../services/hr-roles.service'
 export class HomeComponent implements OnInit {
 
   roles:any;
+  deviceXs: Boolean;
+  mediaSub: Subscription;
+
 
   constructor(private hrroleService: HrRolesService,
-    private route: Router) {}
+    private route: Router,public mediaObserver: MediaObserver) {}
 
   ngOnInit(): void {
     this.hrroleService.gethrRoles().subscribe(data =>{
@@ -22,6 +27,12 @@ export class HomeComponent implements OnInit {
     (err=>{
       console.log(err)
     }))
+    this.mediaSub = this.mediaObserver.media$.subscribe(
+      (result: MediaChange) => {
+        console.log(result.mqAlias);
+        this.deviceXs = result.mqAlias === 'xs' ? true : false;
+      }
+    );
   }
 
   navigation(role){
@@ -38,7 +49,7 @@ export class HomeComponent implements OnInit {
     
 
           if(role.title == "Organization Structure")
-          this.route.navigateByUrl("/orgStr/payHead")
+          this.route.navigateByUrl("/orgStr/chart")
 
   }
 }

@@ -24,7 +24,7 @@ const routes: Routes = [
 
       },
       {
-        path: '**',
+        path: 'chart',
         component: OrgChartComponent,
         canActivate: [AuthGuard],
 
