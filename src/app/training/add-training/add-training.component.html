@@ -1,5 +1,8 @@
+<p>add-training works!</p>
 
-<form [formGroup]="TrainingFeedbackForm" novalidate (ngSubmit)="onSubmit()">
+
+
+<form [formGroup]="TrainingForm" novalidate (ngSubmit)="onSubmit()">
     <mat-card class="container col-sm-6 mt-2 mb-2">
       <div class="justify-content-between d-flex">
         <mat-card-title>{{ title }}</mat-card-title>
@@ -14,41 +17,41 @@
             </mat-option>
           </mat-select>
           <mat-error
-            *ngIf="TrainingFeedbackForm.controls['TrainingName'].hasError('required')"
+            *ngIf="TrainingForm.controls['TrainingName'].hasError('required')"
           >
           TrainingName is <strong>required</strong>
           </mat-error>
         </mat-form-field>
   
         <mat-form-field>
-          <mat-label>Employee</mat-label>
+          <mat-label>Trainer</mat-label>
   
           <input
             matInput
-            placeholder="Employee"
-            formControlName="Employee"
+            placeholder="Trainer"
+            formControlName="Trainer"
           />
           <mat-error
-            *ngIf="TrainingFeedbackForm.controls['Employee'].hasError('required')"
+            *ngIf="TrainingForm.controls['Trainer'].hasError('required')"
           >
-          Employee is <strong>required</strong>
+          Trainer is <strong>required</strong>
           </mat-error>
         </mat-form-field>
   
   
         <mat-form-field>
-          <mat-label>Feedback</mat-label>
+          <mat-label>Description</mat-label>
           <textarea
             matInput
-            placeholder="Feedback"
-            formControlName="Feedback"
+            placeholder="Description"
+            formControlName="Description"
           ></textarea>
           <mat-error
             *ngIf="
-              TrainingFeedbackForm.controls['Feedback'].hasError('required')
+              TrainingForm.controls['Description'].hasError('required')
             "
           >
-            Feedback is <strong>required</strong>
+            Job Description is <strong>required</strong>
           </mat-error>
         </mat-form-field>
       </mat-card-content>
@@ -57,7 +60,7 @@
         
         <br />
         <!-- </mat-form-field> -->
-        <button mat-raised-button color="primary" type="submit">Save</button>
+        <button mat-raised-button color="primary" type="submit">Add</button>
       </mat-card-actions>
     </mat-card>
     <br />

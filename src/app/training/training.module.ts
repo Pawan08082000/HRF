@@ -6,11 +6,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewTrainingComponent } from './view-training/view-training.component';
+import { AddTrainingComponent } from './add-training/add-training.component';
 
 
 
 @NgModule({
-  declarations: [TrainingFeedbackComponent],
+  declarations: [TrainingFeedbackComponent, ViewTrainingComponent, AddTrainingComponent],
   imports: [
     CommonModule,
     TrainingRoutingModule,

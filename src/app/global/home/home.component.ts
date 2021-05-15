@@ -1,44 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import {HrRolesService} from '../../services/hr-roles.service'
+import { HrRolesService } from '../../services/hr-roles.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  roles: any;
 
-  roles:any;
-
-  constructor(private hrroleService: HrRolesService,
-    private route: Router) {}
+  constructor(private hrroleService: HrRolesService, private route: Router) {}
 
   ngOnInit(): void {
-    this.hrroleService.gethrRoles().subscribe(data =>{
-      this.roles = data
-    },
-    (err=>{
-      console.log(err)
-    }))
+    this.hrroleService.gethrRoles().subscribe(
+      (data) => {
+        this.roles = data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
-  navigation(role){
-    if(role.title == "Menu Master"){
-      this.route.navigateByUrl("/menuMaster/emplMaster/emplSearch")
+  navigation(role) {
+    if (role.title == 'Menu Master') {
+      this.route.navigateByUrl('/menuMaster/emplMaster/emplSearch');
     }
-    if(role.title == "Self Portal")
-      this.route.navigateByUrl("/selfPortal/leaveReq/form")
-    if(role.title == "Requirment Structure")
-      this.route.navigateByUrl("/reqStr/viewJobVacancies")
+    if (role.title == 'Self Portal')
+      this.route.navigateByUrl('/selfPortal/leaveReq/form');
+    if (role.title == 'Requirment Structure')
+      this.route.navigateByUrl('/reqStr/viewJobVacancies');
 
-    if(role.title == "Training Module")
-      this.route.navigateByUrl("/training/trainingFeedback")
-    
+    if (role.title == 'Training Module')
+      this.route.navigateByUrl('/training/viewTrainings');
 
-          if(role.title == "Organization Structure")
-          this.route.navigateByUrl("/orgStr/payHead")
-
+    if (role.title == 'Organization Structure')
+      this.route.navigateByUrl('/orgStr/payHead');
   }
 }
