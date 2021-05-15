@@ -15,7 +15,7 @@ export class TrainingService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   
-  private API = 'http://127.0.0.1:9000/api/';
+  private API = 'https://m2aster.herokuapp.com/api/';
   private putFeedback = "training/addFeedback"
   private insertTraining = "training/addTraining";
   private getTrainings = "training/getTrainings"
