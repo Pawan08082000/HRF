@@ -15,7 +15,7 @@ export class CalendarService {
   private API = 'https://m2aster.herokuapp.com/api/';
   private addEvent = "eventCalendar/postEvent";
   private showEvent = "eventCalendar/showEvents"
-private delEvent = "eventCalendar/deleteEvent"
+  private delEvent = "eventCalendar/deleteEvent"
   
  httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
