@@ -46,4 +46,10 @@ export class ViewTrainingComponent implements OnInit {
     console.log('Submitted')
   }
 
+  addTraining(){
+    console.log("addes")
+    this.route.navigateByUrl("/training/addTraining")
+
+  }
+
 }

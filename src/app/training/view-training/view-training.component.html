@@ -1,5 +1,13 @@
-<p>view-training works!</p>
-
+<mat-card style="background-color:transparent">
+    <mat-card-title>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit"
+            (click) = "addTraining()">
+            <mat-icon>add</mat-icon>
+            <p style="display: inline;">Training</p></button>
+        </mat-card-actions>
+    </mat-card-title>
+</mat-card>
 <mat-card class="col-md-6 col-sm-6 container uk-display-inline-block"
 *ngFor = "let i of trainings"
 >
