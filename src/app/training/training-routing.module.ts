@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {
         //this is for lazy loading
-        path: 'trainingFeedback',
+        path: 'trainingFeedback/:id',
         // canActivate: [AuthGuard],
         component: TrainingFeedbackComponent
       },

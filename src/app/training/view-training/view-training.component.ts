@@ -11,6 +11,7 @@ import * as json_data from '../training.json';
 })
 export class ViewTrainingComponent implements OnInit {
 
+  panelOpenState = false;
   trainings = [];
 
   constructor(
@@ -33,13 +34,6 @@ export class ViewTrainingComponent implements OnInit {
         })
       }
     })
-  }
-
-  
-  Feedback(){
-    console.log('Submitted')
-    this.route.navigateByUrl("/training/trainingFeedback")
-
   }
 
   apply(){

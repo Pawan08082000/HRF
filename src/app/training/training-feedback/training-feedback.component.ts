@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { TitleService } from 'src/app/services/title.service';
 import { TrainingService } from 'src/app/services/training.service';
-import * as json_data from '../training.json'
 
 @Component({
   selector: 'app-training-feedback',
@@ -12,21 +12,24 @@ import * as json_data from '../training.json'
 })
 export class TrainingFeedbackComponent implements OnInit {
 
-  
+  @Input() count: number;
+
   TrainingFeedbackForm = this.fb.group({
-    TrainingName: [null, Validators.required],
     Employee: [null, Validators.required],
     Feedback: [null, Validators.required],
    
   });
-  TrainingName = json_data.TrainingName;
   title: String;
+  urlLength: number;
+  Id: any;
   
   constructor(
     private fb: FormBuilder,
     private titleService: TitleService,
     private trainingService: TrainingService,
     private _snackBar: MatSnackBar,
+    private activatedRoute: ActivatedRoute
+
     
   ) {
     this.titleService.setTitle('Training Feedback');
@@ -34,17 +37,17 @@ export class TrainingFeedbackComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.Id = this.count
     this.titleService
     .getTitle()
     .subscribe((appTitle) => (this.title = appTitle));
 
-    
-  }
+}
 
   onSubmit(){
     console.log("submitted")
     if(this.TrainingFeedbackForm.valid){
-      this.trainingService.addFeedback(this.TrainingFeedbackForm.value).subscribe(
+      this.trainingService.addFeedback(this.Id, this.TrainingFeedbackForm.value).subscribe(
         (data) => {
           if (data.message) {
             this._snackBar.open(data.message, 'OK', {

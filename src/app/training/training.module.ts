@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewTrainingComponent } from './view-training/view-training.component';
 import { AddTrainingComponent } from './add-training/add-training.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 
@@ -22,7 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     ReactiveFormsModule,
     MatIconModule,
-
+    MatExpansionModule
 
   ]
 })
