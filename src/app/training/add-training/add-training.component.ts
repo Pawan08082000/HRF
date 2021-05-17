@@ -26,7 +26,7 @@ export class AddTrainingComponent implements OnInit {
     private _snackBar: MatSnackBar,
 
   ) {
-    this.titleService.setTitle('Training Feedback');
+    this.titleService.setTitle(' Add Training');
   }
 
   ngOnInit(): void {
