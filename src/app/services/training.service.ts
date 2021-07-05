@@ -18,7 +18,8 @@ export class TrainingService {
   private API = 'https://m2aster.herokuapp.com/api/';
   private putFeedback = "training/addFeedback/"
   private insertTraining = "training/addTraining";
-  private getTrainings = "training/getTrainings"
+  private getTrainings = "training/getTrainings";
+  private getFeedbacks = "training/getFeedback/"
 
   addFeedback(id, feedback): Observable<any> {
     return this.http.put(this.API + this.putFeedback + id, feedback, this.httpOptions);
@@ -28,5 +29,9 @@ export class TrainingService {
   }
   trainings(){
     return this.http.get(this.API + this.getTrainings, this.httpOptions)
+  }
+  feedbacks(id){
+    return this.http.get(this.API + this.getFeedbacks + id, this.httpOptions)
+
   }
 }

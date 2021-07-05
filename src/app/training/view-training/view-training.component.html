@@ -39,7 +39,7 @@
       </mat-panel-description>
     </mat-expansion-panel-header>
     <app-training-feedback [count]=i.Id></app-training-feedback>
-    <p>I'm visible because I am open</p>
+    <p><app-display-feedback [feed] = i.Id></app-display-feedback></p>
   </mat-expansion-panel>
       </mat-accordion>
   </mat-card>

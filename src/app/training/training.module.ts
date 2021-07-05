@@ -10,11 +10,14 @@ import { ViewTrainingComponent } from './view-training/view-training.component';
 import { AddTrainingComponent } from './add-training/add-training.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { DisplayFeedbackComponent } from './display-feedback/display-feedback.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 
 
 @NgModule({
-  declarations: [TrainingFeedbackComponent, ViewTrainingComponent, AddTrainingComponent],
+  declarations: [TrainingFeedbackComponent, ViewTrainingComponent, AddTrainingComponent, DisplayFeedbackComponent],
   imports: [
     CommonModule,
     TrainingRoutingModule,
@@ -23,8 +26,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSelectModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatExpansionModule
-
+    MatExpansionModule,
+    MatDividerModule,
+    MatListModule
   ]
 })
 export class TrainingModule { }

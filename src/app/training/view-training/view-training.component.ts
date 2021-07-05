@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TrainingService } from 'src/app/services/training.service';
-import * as json_data from '../training.json';
 
 @Component({
   selector: 'app-view-training',
@@ -23,7 +22,6 @@ export class ViewTrainingComponent implements OnInit {
   ngOnInit(): void {
     this.trainingService.trainings().subscribe((data) =>
     {
-      console.log(data)
       for(let i in data){
         this.trainings.push({
           Id: data[i]._id,
@@ -41,7 +39,6 @@ export class ViewTrainingComponent implements OnInit {
   }
 
   addTraining(){
-    console.log("addes")
     this.route.navigateByUrl("/training/addTraining")
 
   }
